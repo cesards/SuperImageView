@@ -1,6 +1,7 @@
 package com.cesards.cropimageviewsamples;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -26,6 +27,15 @@ public class CropActivity extends Activity {
       CropImageView.CropType.CENTER_BOTTOM,
       CropImageView.CropType.LEFT_BOTTOM,
       CropImageView.CropType.RIGHT_BOTTOM,
+      // Repeating crop with different images
+      CropImageView.CropType.LEFT_CENTER,
+      CropImageView.CropType.RIGHT_CENTER,
+      CropImageView.CropType.CENTER_TOP,
+      CropImageView.CropType.LEFT_TOP,
+      CropImageView.CropType.RIGHT_TOP,
+      CropImageView.CropType.CENTER_BOTTOM,
+      CropImageView.CropType.LEFT_BOTTOM,
+      CropImageView.CropType.RIGHT_BOTTOM,
   };
 
   private int[] images = {
@@ -37,6 +47,15 @@ public class CropActivity extends Activity {
       R.drawable.ball_centered_bottom_ball,
       R.drawable.ball_centered_bottom_ball,
       R.drawable.ball_centered_bottom_ball,
+      // Repeating crop with different images
+      R.drawable.ball_centered_bottom_ball,
+      R.drawable.ball_centered_bottom_ball,
+      R.drawable.ball_centered_bottom_ball,
+      R.drawable.zombie,
+      R.drawable.zombie,
+      R.drawable.zombie,
+      R.drawable.zombie,
+      R.drawable.zombie,
   };
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +68,10 @@ public class CropActivity extends Activity {
 
   private void initData() {
     this.pagerView.setAdapter(new CropImageAdapter());
+    final int pagerMargin = getResources().getDimensionPixelSize(R.dimen.activity_horizontal_margin);
+    this.pagerView.setPageMargin(pagerMargin);
+    // TODO Library isn't working with PageTransformations for now. Needs a little bit more reseearching about that
+    //this.pagerView.setPageTransformer(true, new BackgroundToForegroundTransformer());
 
     this.indicatorView.setViewPager(this.pagerView);
     this.indicatorView.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -63,14 +86,16 @@ public class CropActivity extends Activity {
   private class CropImageAdapter extends PagerAdapter {
 
     @Override public Object instantiateItem(ViewGroup container, int position) {
-      CropImageView cropImageView = new CropImageView(CropActivity.this);
-      cropImageView.setImageDrawable(getResources().getDrawable(images[position]));
+      ForegroundImageView cropImageView = new ForegroundImageView(CropActivity.this);
+      final Resources res = getResources();
+      cropImageView.setImageDrawable(res.getDrawable(images[position]));
+      cropImageView.setForeground(res.getDrawable(R.drawable.shape_grad_black_transp_70));
       final CropImageView.CropType cropType = imageCrops[position];
-      cropImageView.setId(cropType.getCrop());
       cropImageView.setCropType(cropType);
+      cropImageView.setId(cropType.getCrop());
+
       final int matchParent = ViewGroup.LayoutParams.MATCH_PARENT;
       FrameLayout.LayoutParams imageParams = new FrameLayout.LayoutParams(matchParent, matchParent);
-
       container.addView(cropImageView, imageParams);
       return cropImageView;
     }

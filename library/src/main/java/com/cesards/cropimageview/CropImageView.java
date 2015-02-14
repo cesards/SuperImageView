@@ -89,26 +89,28 @@ public class CropImageView extends ImageView {
 
       final boolean verticalImageMode = scaleX > scaleY;
 
-      final float xTranslation = getXTranslation(cropType, scale, viewWidth, drawableWidth, verticalImageMode);
-      final float yTranslation = getYTranslation(cropType, scale, viewHeight, drawableHeight, verticalImageMode);
+      final float postDrawableWidth = drawableWidth * scale;
+      final float xTranslation = getXTranslation(cropType, viewWidth, postDrawableWidth, verticalImageMode);
+      final float postDrawabeHeigth = drawableHeight * scale;
+      final float yTranslation = getYTranslation(cropType, viewHeight, postDrawabeHeigth, verticalImageMode);
 
       matrix.postTranslate(xTranslation, yTranslation);
       setImageMatrix(matrix);
     }
   }
 
-  private float getYTranslation(CropType cropType, float scale, int viewHeight, int drawableHeight,
+  private float getYTranslation(CropType cropType, int viewHeight, float postDrawabeHeigth,
       boolean verticalImageMode) {
     if (verticalImageMode) {
       switch (cropType) {
         case CENTER_BOTTOM:
         case LEFT_BOTTOM:
         case RIGHT_BOTTOM:
-          return viewHeight - (scale * drawableHeight);
+          return viewHeight - postDrawabeHeigth;
         case LEFT_CENTER:
         case RIGHT_CENTER:
           // View in the middle of the screen
-          return (float) (((float) viewHeight / 2.0) - ((float) drawableHeight / 2.0));
+          return (viewHeight - postDrawabeHeigth) / 2f;
       }
     }
 
@@ -116,18 +118,18 @@ public class CropImageView extends ImageView {
     return 0;
   }
 
-  private float getXTranslation(CropType cropType, float scale, int viewWidth, int drawableWidth,
+  private float getXTranslation(CropType cropType, int viewWidth, float postDrawableWidth,
       boolean verticalImageMode) {
     if (!verticalImageMode) {
       switch (cropType) {
         case RIGHT_TOP:
         case RIGHT_CENTER:
         case RIGHT_BOTTOM:
-          return viewWidth - (drawableWidth * scale);
+          return viewWidth - postDrawableWidth;
         case CENTER_TOP:
         case CENTER_BOTTOM:
           // View in the middle of the screen
-          return (float) (((float) viewWidth / 2.0) + ((float) drawableWidth / 2.0));
+          return (viewWidth - postDrawableWidth) / 2f;
       }
     }
     // All other cases we don't need to translate
