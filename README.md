@@ -26,26 +26,26 @@ Usage
 ##### Gradle
 ```groovy
 dependencies {
-   compile ''
+   compile 'com.cesards.android:cropimageview:1.0.0'
 }
 ```
 ##### Maven
 ```xml
 <dependency>
-    <groupId></groupId>
-    <artifactId></artifactId>
-    <version></version>
-    <type></type>
+   <groupId>com.cesards.android</groupId>
+   <artifactId>cropimageview</artifactId>
+   <version>1.0.0</version>
+   <type>aar</type>
 </dependency>
 ```
 ### Step 2
 Define in xml:
 ```xml
 <com.cesards.cropimageview
-        xmlns:custom="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/imageView1"
-        android:src="@drawable/photo1"
-        custom:crop="value" />
+   xmlns:custom="http://schemas.android.com/apk/res-auto"
+   android:id="@+id/imageView1"
+   android:src="@drawable/photo1"
+   custom:crop="value" />
 ```
 where `value` can take values
 ```xml
