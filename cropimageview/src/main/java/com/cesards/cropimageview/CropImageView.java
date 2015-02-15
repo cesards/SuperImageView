@@ -38,10 +38,9 @@ public class CropImageView extends ImageView {
   }
 
   /**
+   * Set crop type for the {@link ImageView}
    *
    * @param cropType A {@link CropType} desired scaling mode.
-   *
-   * @attr ref R.styleable#CropImageView_crop
    */
   public void setCropType(CropType cropType) {
 
@@ -63,8 +62,6 @@ public class CropImageView extends ImageView {
    * Return the current crop type in use by this ImageView.
    *
    * @return a {@link CropType} in use by this ImageView
-   *
-   * @attr ref R.styleable#CropImageView_crop
    */
   public CropType getCropType() {
     return cropType;
