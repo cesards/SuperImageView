@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cesards.cropimageviewsamples;
+package com.cesards.samples.cropimageview;
 
 import android.view.View;
 

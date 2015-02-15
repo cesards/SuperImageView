@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package com.cesards.cropimageviewsamples;
+package com.cesards.samples.cropimageview;
 
 import android.support.v4.view.ViewPager.PageTransformer;
 import android.view.View;

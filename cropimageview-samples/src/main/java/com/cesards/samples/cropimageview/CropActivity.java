@@ -1,4 +1,4 @@
-package com.cesards.cropimageviewsamples;
+package com.cesards.samples.cropimageview;
 
 import android.app.Activity;
 import android.content.res.Resources;
@@ -69,7 +69,6 @@ public class CropActivity extends Activity {
   private void initData() {
     this.pagerView.setAdapter(new CropImageAdapter());
     final int pagerMargin = getResources().getDimensionPixelSize(R.dimen.activity_horizontal_margin);
-    this.pagerView.setPageMargin(pagerMargin);
     // TODO Library isn't working with PageTransformations for now. Needs a little bit more reseearching about that
     //this.pagerView.setPageTransformer(true, new BackgroundToForegroundTransformer());
 

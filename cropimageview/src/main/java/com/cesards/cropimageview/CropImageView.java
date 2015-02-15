@@ -23,24 +23,49 @@ public class CropImageView extends ImageView {
 
   public CropImageView(Context context, AttributeSet attrs) {
     super(context, attrs);
-    parseAttributes(attrs);
+    this.parseAttributes(attrs);
   }
 
   public CropImageView(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
-    parseAttributes(attrs);
+    this.parseAttributes(attrs);
   }
 
   @TargetApi(Build.VERSION_CODES.LOLLIPOP) public CropImageView(Context context, AttributeSet attrs, int defStyleAttr,
       int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
-    parseAttributes(attrs);
+    this.parseAttributes(attrs);
   }
 
+  /**
+   *
+   * @param cropType A {@link CropType} desired scaling mode.
+   *
+   * @attr ref R.styleable#CropImageView_crop
+   */
   public void setCropType(CropType cropType) {
-    this.cropType = cropType;
+
+    if (cropType == null) {
+      throw new NullPointerException();
+    }
+
+    if (this.cropType != cropType) {
+      this.cropType = cropType;
+
+      setWillNotCacheDrawing(false);
+
+      requestLayout();
+      invalidate();
+    }
   }
 
+  /**
+   * Return the current crop type in use by this ImageView.
+   *
+   * @return a {@link CropType} in use by this ImageView
+   *
+   * @attr ref R.styleable#CropImageView_crop
+   */
   public CropType getCropType() {
     return cropType;
   }

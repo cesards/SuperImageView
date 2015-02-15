@@ -1,1 +1,1 @@
-include ':library', ':samples'
+include ':cropimageview', ':cropimageview-samples'

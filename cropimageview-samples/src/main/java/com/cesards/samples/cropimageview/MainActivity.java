@@ -1,4 +1,4 @@
-package com.cesards.cropimageviewsamples;
+package com.cesards.samples.cropimageview;
 
 import android.app.Activity;
 import android.content.Intent;
