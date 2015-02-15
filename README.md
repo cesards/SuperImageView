@@ -11,8 +11,8 @@ Development idea borns at the point in [Kerad Games] we needed images cropped by
 
 The original images we had to deal with (we wanted the half size of the ball shown whatever screen size), below
 
-![Menu Left Side](https://github.com/cesards/CropImageView/blob/master/art/slide_menu_left.png)
-![Menu Right Side](https://github.com/cesards/CropImageView/blob/master/art/slide_menu_right.png)
+![Menu Left Side](https://github.com/cesards/CropImageView/blob/master/art/slide_menu_left.jpg)
+![Menu Right Side](https://github.com/cesards/CropImageView/blob/master/art/slide_menu_right.jpg)
 
 Here are some screenshots what we got thanks to this widget :-)
 
