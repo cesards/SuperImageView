@@ -26,16 +26,16 @@ Usage
 ##### Gradle
 ```groovy
 dependencies {
-   compile ''
+   compile 'com.cesards.android:cropimageview:1.0.0'
 }
 ```
 ##### Maven
 ```xml
 <dependency>
-    <groupId></groupId>
-    <artifactId></artifactId>
-    <version></version>
-    <type></type>
+   <groupId>com.cesards.android</groupId>
+   <artifactId>cropimageview</artifactId>
+   <version>1.0.0</version>
+   <type>aar</type>
 </dependency>
 ```
 ### Step 2
