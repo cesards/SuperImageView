@@ -86,10 +86,6 @@ I'm pretty sure you there are some awesome hidden features you need in your dail
 
 I'd like to improve this library with your help, there are some new features to implement waiting for you ;)
 
-* To be able to filter traces using the TraceLevel.
-* Play/Pause LynxView.
-* Any cool feature you can imagine!
-
 License
 ---------
 
