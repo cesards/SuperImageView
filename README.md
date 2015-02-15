@@ -42,10 +42,10 @@ dependencies {
 Define in xml:
 ```xml
 <com.cesards.cropimageview
-        xmlns:custom="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/imageView1"
-        android:src="@drawable/photo1"
-        custom:crop="value" />
+   xmlns:custom="http://schemas.android.com/apk/res-auto"
+   android:id="@+id/imageView1"
+   android:src="@drawable/photo1"
+   custom:crop="value" />
 ```
 where `value` can take values
 ```xml
