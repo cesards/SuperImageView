@@ -9,10 +9,15 @@ Using this library, you can crop your desired image by sides described below:
 
 Development idea borns at the point in [Kerad Games] we needed images cropped by somewhere no matter the image size.
 
+The original images we had to deal with (we wanted the half size of the ball shown whatever screen size), below
+
+![Menu Left Side](https://github.com/cesards/CropImageView/blob/master/art/slide_menu_left.png)
+![Menu Right Side](https://github.com/cesards/CropImageView/blob/master/art/slide_menu_right.png)
+
 Here are some screenshots what we got thanks to this widget :-)
 
-![Menu Left Side](https://github.com/cesards/CropImageView/blob/master/art/crop_menu_1.png)
-![Menu Right Side](https://github.com/cesards/CropImageView/blob/master/art/crop_menu_2.png)
+![Menu Post Left Side](https://github.com/cesards/CropImageView/blob/master/art/crop_menu_1.png)
+![Menu Post Right Side](https://github.com/cesards/CropImageView/blob/master/art/crop_menu_2.png)
 ![Menu Centered](https://github.com/cesards/CropImageView/blob/master/art/crop_menu_3.png)
 
 Usage
