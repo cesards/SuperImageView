@@ -64,7 +64,7 @@ public class CropImageView extends ImageView {
    * @return a {@link CropType} in use by this ImageView
    */
   public CropType getCropType() {
-    return cropType;
+    return this.cropType;
   }
 
   private void parseAttributes(AttributeSet attrs) {
@@ -73,7 +73,7 @@ public class CropImageView extends ImageView {
     final int crop = a.getInt(R.styleable.CropImageView_crop, CropType.NONE.getCrop());
     if (crop >= 0) {
       setScaleType(ScaleType.MATRIX);
-      cropType = CropType.get(crop);
+      this.cropType = CropType.get(crop);
     }
     a.recycle();
   }
@@ -81,7 +81,7 @@ public class CropImageView extends ImageView {
   @Override
   protected boolean setFrame(int l, int t, int r, int b) {
     if (!isInEditMode()) {
-      computeImageMatrix();
+      this.computeImageMatrix();
     }
     return super.setFrame(l, t, r, b);
   }
@@ -90,7 +90,7 @@ public class CropImageView extends ImageView {
   protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
     super.onLayout(changed, left, top, right, bottom);
     if (!isInEditMode()) {
-      computeImageMatrix();
+      this.computeImageMatrix();
     }
   }
 
