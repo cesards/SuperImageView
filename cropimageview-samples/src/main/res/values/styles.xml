@@ -2,6 +2,6 @@
 
   <!-- Base application theme. -->
   <style name="AppTheme"
-      parent="android:Theme.Holo.Light.DarkActionBar"/>
+      parent="android:Theme.Holo.Light.NoActionBar"/>
 
 </resources>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 DogmaLabs
+ * Copyright 2015 Cesar Diez Sanchez
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cesards.samples.cropimageview;
+package com.cesards.samples.cropimageview.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -24,8 +24,9 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
 import com.cesards.cropimageview.CropImageView;
+import com.cesards.samples.cropimageview.R;
 
-public class ForegroundImageView extends CropImageView {
+public class ForegroundCropImageView extends CropImageView {
 
   // UI
   private Drawable foreground;
@@ -37,15 +38,15 @@ public class ForegroundImageView extends CropImageView {
   private boolean backgroundAsForeground = false;
 
   // Constructors
-  public ForegroundImageView(Context context) {
+  public ForegroundCropImageView(Context context) {
     super(context);
   }
 
-  public ForegroundImageView(Context context, AttributeSet attrs) {
+  public ForegroundCropImageView(Context context, AttributeSet attrs) {
     this(context, attrs, 0);
   }
 
-  public ForegroundImageView(Context context, AttributeSet attrs, int defStyle) {
+  public ForegroundCropImageView(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
 
     final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ForegroundLayout, defStyle, 0);
@@ -71,6 +72,10 @@ public class ForegroundImageView extends CropImageView {
     }
 
     a.recycle();
+  }
+
+  public ForegroundCropImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    super(context, attrs, defStyleAttr, defStyleRes);
   }
 
   /**

@@ -9,8 +9,8 @@ android {
   defaultConfig {
     minSdkVersion 14
     targetSdkVersion 21
-    versionCode 1
-    versionName "1.0"
+    versionCode 2
+    versionName "1.0.1"
   }
 
   compileOptions {
@@ -22,7 +22,7 @@ android {
 def siteUrl = 'https://github.com/cesards/CropImageView'          // Homepage URL of the library
 def gitUrl = 'https://github.com/cesards/CropImageView.git'       // Git repository URL
 // This is the library version used when deploying the artifact
-version = "1.0.0"
+version = "1.0.1"
 group = "com.cesards.android"
 
 Properties properties = new Properties()

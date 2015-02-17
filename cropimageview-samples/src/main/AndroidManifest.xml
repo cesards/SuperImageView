@@ -11,7 +11,7 @@
       >
 
     <activity
-        android:name=".MainActivity"
+        android:name=".activity.MainActivity"
         >
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
@@ -21,7 +21,11 @@
     </activity>
 
     <activity
-        android:name=".CropActivity"
+        android:name=".activity.SimpleCropActivity"
+        />
+
+    <activity
+        android:name=".activity.CustomCropActivity"
         />
   </application>
 

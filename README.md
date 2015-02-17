@@ -59,11 +59,50 @@ cropImageView.setImageDrawable(res.getDrawable(images[position]));
 final CropImageView.CropType cropType = imageCrops[position];
 cropImageView.setCropType(cropType);
 ```
+Performance tests (using [Hugo](https://github.com/jakeWharton/hugo))
+---------
+
+### Center Crop Sample (ImageView)`
+```
+V/TestForegroundImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1557)
+V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = true
+V/TestForegroundImageView﹕ ⇢ setFrame(l=1080, t=0, r=2160, b=1557)
+V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = true
+V/TestForegroundImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1557)
+V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = false
+V/TestForegroundImageView﹕ ⇢ setFrame(l=1080, t=0, r=2160, b=1557)
+V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = false
+V/TestForegroundImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1701)
+V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = true
+V/TestForegroundImageView﹕ ⇢ setFrame(l=1080, t=0, r=2160, b=1701)
+V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = true`
+```
+
+### Custom Crop Sample (CropImageView)
+```
+V/TestForegroundCropImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1557)
+V/TestForegroundCropImageView﹕ ⇠ setFrame [0ms] = true
+V/TestForegroundCropImageView﹕ ⇢ setFrame(l=1080, t=0, r=2160, b=1557)
+V/TestForegroundCropImageView﹕ ⇠ setFrame [0ms] = true
+V/TestForegroundCropImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1557)
+V/TestForegroundCropImageView﹕ ⇠ setFrame [0ms] = false
+V/TestForegroundCropImageView﹕ ⇢ setFrame(l=1080, t=0, r=2160, b=1557)
+V/TestForegroundCropImageView﹕ ⇠ setFrame [0ms] = false
+V/TestForegroundCropImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1701)
+V/TestForegroundCropImageView﹕ ⇠ setFrame [0ms] = true
+V/TestForegroundCropImageView﹕ ⇢ setFrame(l=1080, t=0, r=2160, b=1701)
+V/TestForegroundCropImageView﹕ ⇠ setFrame [0ms] = true
+```
+Results: code used does not cause overhead in the UI thread.
 
 ChangeLog
 ---------
-
-* __1.4.0 (2015-02-15)__
+* __1.0.1 (2015-02-17)__
+  * Changed Samples UI and removed unused resources.
+  * Added performance tests to Samples
+  * Added code styles for contributions
+  * Improved CropImageView` widget. Removed `onLayout()` overhead. `ImageView`'s `onLayout()` is emoty, so we only need logic in `setFrame()` method
+* __1.0.0 (2015-02-15)__
   * Initial release. (```minSdkVersion="14"```)
 
 Developed By
@@ -90,6 +129,8 @@ Do you want to contribute?
 I'm pretty sure you there are some awesome hidden features you need in your daily dev life. Just let me know or collaborate to improve this librar
 
 I'd like to improve this library with your help, there are some new features to implement waiting for you ;)
+
+If you want to contribut, you should use my code styles available in the root of the project!
 
 License
 ---------
