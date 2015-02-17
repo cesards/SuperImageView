@@ -1,28 +1,32 @@
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
 
   <Button
+      android:padding="@dimen/activity_horizontal_margin"
       android:layout_width="match_parent"
-      android:layout_height="48dp"
-      android:layout_gravity="center"
-      android:layout_marginRight="16dp"
-      android:id="@+id/main_crops"
-      android:layout_marginLeft="16dp"
-      android:layout_marginTop="16dp"
-      android:text="Show me CROPS now!!"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:id="@+id/main_crop_simple"
+      android:gravity="center"
+      android:background="@android:color/white"
+      android:textColor="@color/black_70"
+      android:text="@string/sample_center_crop"
       />
 
-  <TextView
+  <Button
+      android:padding="@dimen/activity_horizontal_margin"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:padding="16dp"
+      android:layout_height="0dp"
+      android:layout_weight="1"
       android:textSize="18sp"
-      android:layout_gravity="bottom"
+      android:id="@+id/main_crop_custom"
+      android:gravity="center"
       android:textColor="@android:color/white"
       android:background="@color/black_70"
-      android:text="Fitted Image to show the entire aspect :-)"
+      android:text="@string/sample_custom_crop"
       />
 
-</merge>
+</LinearLayout>
