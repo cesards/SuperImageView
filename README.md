@@ -62,7 +62,8 @@ cropImageView.setCropType(cropType);
 Performance tests (using [Hugo](https://github.com/jakeWharton/hugo))
 ---------
 
-### Center Crop Sample (ImageView)
+### Center Crop Sample (ImageView)`
+```
 V/TestForegroundImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1557)
 V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = true
 V/TestForegroundImageView﹕ ⇢ setFrame(l=1080, t=0, r=2160, b=1557)
@@ -74,8 +75,11 @@ V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = false
 V/TestForegroundImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1701)
 V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = true
 V/TestForegroundImageView﹕ ⇢ setFrame(l=1080, t=0, r=2160, b=1701)
-V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = true
+V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = true`
+```
+
 ### Custom Crop Sample (CropImageView)
+```
 V/TestForegroundCropImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1557)
 V/TestForegroundCropImageView﹕ ⇠ setFrame [0ms] = true
 V/TestForegroundCropImageView﹕ ⇢ setFrame(l=1080, t=0, r=2160, b=1557)
@@ -88,7 +92,7 @@ V/TestForegroundCropImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1701)
 V/TestForegroundCropImageView﹕ ⇠ setFrame [0ms] = true
 V/TestForegroundCropImageView﹕ ⇢ setFrame(l=1080, t=0, r=2160, b=1701)
 V/TestForegroundCropImageView﹕ ⇠ setFrame [0ms] = true
-
+```
 Results: code used does not cause overhead in the UI thread.
 
 ChangeLog
