@@ -26,7 +26,7 @@ Usage
 ##### Gradle
 ```groovy
 dependencies {
-   compile 'com.cesards.android:cropimageview:1.0.0'
+   compile 'com.cesards.android:cropimageview:1.0.1'
 }
 ```
 ##### Maven
@@ -62,7 +62,7 @@ cropImageView.setCropType(cropType);
 Performance tests (using [Hugo](https://github.com/jakeWharton/hugo))
 ---------
 
-### Center Crop Sample (ImageView)`
+### Center Crop Sample (ImageView)
 ```
 V/TestForegroundImageView﹕ ⇢ setFrame(l=0, t=0, r=1080, b=1557)
 V/TestForegroundImageView﹕ ⇠ setFrame [0ms] = true
@@ -130,7 +130,7 @@ I'm pretty sure you there are some awesome hidden features you need in your dail
 
 I'd like to improve this library with your help, there are some new features to implement waiting for you ;)
 
-If you want to contribut, you should use my code styles available in the root of the project!
+If you want to contribut, you should use [my code styles](https://github.com/cesards/CropImageView/blob/master/codestyles_DogmaLabs.xml) available in the root of the project!
 
 License
 ---------
