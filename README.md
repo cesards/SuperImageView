@@ -1,6 +1,6 @@
 CropImageView
 =============
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AwesomeText-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1554)[ ![Download](https://api.bintray.com/packages/jmpergar/maven/AwesomeText/images/download.svg) ](https://bintray.com/m3n0r/maven/CropImageView/1.0.1/view) [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0) [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0) [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 
 
 An ImageView that supports different kind of cropping rather than the only Android is currently supporting: `centerCrop`
