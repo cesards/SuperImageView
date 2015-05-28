@@ -123,7 +123,8 @@ Developed By
 
 Who's using it
 --------------
-* [Golden Manager (Beta)](http://mobilebeta.goldenmanager.com/)
+* [Golden Manager](https://play.google.com/store/apps/details?id=com.keradgames.goldenmanager)
+* [Slipstream Music](https://play.google.com/store/apps/details?id=com.cypher.slipstream&hl=en)
 * Does your app use CropImageView? Let me know if you want to be featured in this list :-)
 
 Do you want to contribute?
