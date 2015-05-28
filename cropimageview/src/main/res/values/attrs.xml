@@ -12,6 +12,7 @@
             <enum name="centerTop" value="6"/>
             <enum name="centerBottom" value="7"/>
         </attr>
+        <attr name="cornerRadius" format="dimension"/>
     </declare-styleable>
 
 </resources>

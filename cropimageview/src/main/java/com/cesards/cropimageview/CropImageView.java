@@ -20,9 +20,11 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +34,7 @@ import java.util.Map;
 public class CropImageView extends ImageView {
 
   private CropType cropType = CropType.NONE;
+  private float cornerRadius = -1;
 
   public CropImageView(Context context) {
     super(context);
@@ -47,8 +50,9 @@ public class CropImageView extends ImageView {
     this.parseAttributes(attrs);
   }
 
-  @TargetApi(Build.VERSION_CODES.LOLLIPOP) public CropImageView(Context context, AttributeSet attrs, int defStyleAttr,
-      int defStyleRes) {
+  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+  public CropImageView(Context context, AttributeSet attrs, int defStyleAttr,
+                       int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
     this.parseAttributes(attrs);
   }
@@ -90,7 +94,18 @@ public class CropImageView extends ImageView {
       setScaleType(ScaleType.MATRIX);
       this.cropType = CropType.get(crop);
     }
+
+    cornerRadius = a.getDimensionPixelSize(R.styleable.CropImageView_cornerRadius, -1);
     a.recycle();
+  }
+
+  //needs to be set before drawable
+  public void setCornerRadius(float cornerRadius){
+    this.cornerRadius = cornerRadius;
+  }
+
+  public float getCornerRadius() {
+    return cornerRadius;
   }
 
   @Override
@@ -99,7 +114,19 @@ public class CropImageView extends ImageView {
     if (!isInEditMode()) {
       this.computeImageMatrix();
     }
+
     return changed;
+  }
+
+  @Override
+  public void setImageDrawable(Drawable drawable) {
+
+    if (cornerRadius > 0) {
+      drawable = RoundedCornerDrawable.fromDrawable(drawable);
+      ((RoundedCornerDrawable) drawable).setCornerRadius(cornerRadius);
+    }
+
+    super.setImageDrawable(drawable);
   }
 
   private void computeImageMatrix() {
@@ -107,11 +134,18 @@ public class CropImageView extends ImageView {
     final int viewHeight = getHeight() - getPaddingTop() - getPaddingBottom();
 
     if (cropType != CropType.NONE && viewHeight > 0 && viewWidth > 0) {
-      final Matrix matrix = getImageMatrix();
 
-      
-      int drawableWidth = getDrawable().getIntrinsicWidth();
-      int drawableHeight = getDrawable().getIntrinsicHeight();
+      Matrix matrix = getImageMatrix();
+
+      int drawableWidth;
+      int drawableHeight;
+      if (cornerRadius > 0 && getDrawable() instanceof RoundedCornerDrawable) {
+        drawableWidth = ((RoundedCornerDrawable) getDrawable()).getBitmapWidth();
+        drawableHeight = ((RoundedCornerDrawable) getDrawable()).getBitmapHeight();
+      } else {
+        drawableWidth = getDrawable().getIntrinsicWidth();
+        drawableHeight = getDrawable().getIntrinsicHeight();
+      }
 
       final float scaleY = (float) viewHeight / (float) drawableHeight;
       final float scaleX = (float) viewWidth / (float) drawableWidth;
@@ -122,16 +156,22 @@ public class CropImageView extends ImageView {
 
       final float postDrawableWidth = drawableWidth * scale;
       final float xTranslation = getXTranslation(cropType, viewWidth, postDrawableWidth, verticalImageMode);
-      final float postDrawabeHeigth = drawableHeight * scale;
-      final float yTranslation = getYTranslation(cropType, viewHeight, postDrawabeHeigth, verticalImageMode);
+      final float postDrawableHeight = drawableHeight * scale;
+      final float yTranslation = getYTranslation(cropType, viewHeight, postDrawableHeight, verticalImageMode);
 
       matrix.postTranslate(xTranslation, yTranslation);
-      setImageMatrix(matrix);
+
+      if (cornerRadius > 0 && getDrawable() instanceof RoundedCornerDrawable) {
+        ((RoundedCornerDrawable) getDrawable()).setMatrix(matrix);
+        setImageMatrix(null);
+      } else {
+        setImageMatrix(matrix);
+      }
     }
   }
 
-  private float getYTranslation(CropType cropType, int viewHeight, float postDrawabeHeigth,
-      boolean verticalImageMode) {
+  public static float getYTranslation(CropType cropType, int viewHeight, float postDrawabeHeigth,
+                                      boolean verticalImageMode) {
     if (verticalImageMode) {
       switch (cropType) {
         case CENTER_BOTTOM:
@@ -149,8 +189,8 @@ public class CropImageView extends ImageView {
     return 0;
   }
 
-  private float getXTranslation(CropType cropType, int viewWidth, float postDrawableWidth,
-      boolean verticalImageMode) {
+  public static float getXTranslation(CropType cropType, int viewWidth, float postDrawableWidth,
+                                      boolean verticalImageMode) {
     if (!verticalImageMode) {
       switch (cropType) {
         case RIGHT_TOP:
