@@ -43,7 +43,7 @@ dependencies {
 ### Step 2
 Define in xml:
 ```xml
-<com.cesards.cropimageview
+<com.cesards.cropimageview.CropImageView
    xmlns:custom="http://schemas.android.com/apk/res-auto"
    android:id="@+id/imageView1"
    android:src="@drawable/photo1"
