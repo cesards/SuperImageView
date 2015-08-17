@@ -12,18 +12,18 @@ buildscript {
 }
 
 android {
-  compileSdkVersion 21
-  buildToolsVersion "21.1.2"
+  compileSdkVersion 22
+  buildToolsVersion "22.0.1"
   defaultConfig {
     applicationId 'com.cesards.android.samples.cropimageview'
-    minSdkVersion 14
-    targetSdkVersion 21
+    minSdkVersion 8
+    targetSdkVersion 22
     versionCode 1
     versionName "1.0.1"
   }
   compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_7
-    targetCompatibility JavaVersion.VERSION_1_7
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
   }
   buildTypes {
     release {
@@ -34,8 +34,7 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:support-v4:21.0.3'
-  compile 'me.relex:circleindicator:1.1.1@aar'
+  compile 'com.android.support:support-v4:22.2.1'
   compile 'com.jakewharton:butterknife:6.1.0'
   compile project(':cropimageview')
 }

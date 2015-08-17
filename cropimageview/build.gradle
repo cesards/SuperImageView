@@ -1,99 +1,36 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
-  compileSdkVersion 21
-  buildToolsVersion "21.1.2"
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 
-  defaultConfig {
-    minSdkVersion 14
-    targetSdkVersion 21
-    versionCode 2
-    versionName "1.0.1"
-  }
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 22
+        versionCode 2
+        versionName "1.0.1"
+    }
 
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_7
-    targetCompatibility JavaVersion.VERSION_1_7
-  }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
-
-def siteUrl = 'https://github.com/cesards/CropImageView'          // Homepage URL of the library
-def gitUrl = 'https://github.com/cesards/CropImageView.git'       // Git repository URL
-// This is the library version used when deploying the artifact
-version = "1.0.1"
-group = "com.cesards.android"
-
+// https://github.com/novoda/bintray-release
+// https://github.com/chrisbanes/gradle-mvn-push
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
-bintray {
-  user = properties.getProperty("bintray.user")
-  key = properties.getProperty("bintray.apikey")
-
-  configurations = ['archives']
-  pkg {
-    repo = "maven"
-    name = "CropImageView"
-    websiteUrl = siteUrl
-    vcsUrl = gitUrl
-    licenses = ["Apache-2.0"]
-    publish = true
-  }
-}
-
-install {
-  repositories.mavenInstaller {
-    // This generates POM.xml with proper parameters
-    pom {
-      project {
-        packaging 'aar'
-
-        // Add your description here
-        name 'Crop ImageView'
-        url siteUrl
-
-        // Set your license
-        licenses {
-          license {
-            name 'The Apache Software License, Version 2.0'
-            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-          }
-        }
-        developers {
-          developer {
-            id 'cesards'
-            name 'César Díez'
-            email 'cesaryomismo@gmail.com'
-          }
-        }
-        scm {
-          connection gitUrl
-          developerConnection gitUrl
-          url siteUrl
-
-        }
-      }
-    }
-  }
-}
-
-task sourcesJar(type: Jar) {
-  from android.sourceSets.main.java.srcDirs
-  classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-  source = android.sourceSets.main.java.srcDirs
-  classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-  classifier = 'javadoc'
-  from javadoc.destinationDir
-}
-artifacts {
-  archives javadocJar
-  archives sourcesJar
+publish {
+    userOrg = 'cesards'
+    repoName = 'maven'
+    artifactId = 'CropImageView'
+    groupId = 'com.cesards.android'
+    publishVersion = '1.0.1'
+    desc = 'Widget allows you crop from whatever side in an ImageView. Currently Android only supports centerCrop type of cropping'
+    licences = ["Apache-2.0"]
+    website = 'https://github.com/cesards/CropImageView'
+    bintrayUser = properties.getProperty("bintray.user")
+    bintrayKey = properties.getProperty("bintray.apikey")
 }
