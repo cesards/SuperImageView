@@ -27,7 +27,6 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.cesards.samples.cropimageview.BackgroundToForegroundTransformer;
 import com.cesards.samples.cropimageview.R;
-import me.relex.circleindicator.CircleIndicator;
 
 /**
  * @author cesards
@@ -35,8 +34,7 @@ import me.relex.circleindicator.CircleIndicator;
 public abstract class CropActivity extends BaseActivity {
 
   @InjectView(R.id.crop_pager) ViewPager pagerView;
-  @InjectView(R.id.crop_indicator) CircleIndicator indicatorView;
-  
+
   protected abstract int getImagesCount();
   protected abstract ImageView instantiatePagerItem(int position);
 
@@ -52,15 +50,6 @@ public abstract class CropActivity extends BaseActivity {
   private void initData() {
     this.pagerView.setAdapter(new CropImageAdapter());
     this.pagerView.setPageTransformer(true, new BackgroundToForegroundTransformer());
-
-    this.indicatorView.setViewPager(this.pagerView);
-    this.indicatorView.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-      @Override public void onPageScrolled(int i, float v, int i2) { }
-
-      @Override public void onPageSelected(int i) { }
-
-      @Override public void onPageScrollStateChanged(int i) { }
-    });
   }
 
   private class CropImageAdapter extends PagerAdapter {
