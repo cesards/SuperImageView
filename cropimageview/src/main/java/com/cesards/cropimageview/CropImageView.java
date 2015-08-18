@@ -19,8 +19,10 @@ package com.cesards.cropimageview;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
@@ -28,13 +30,16 @@ import android.widget.ImageView;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.cesards.cropimageview.RoundedCornerDrawable.*;
+
 /**
  * @author cesards
  */
 public class CropImageView extends ImageView {
 
   private CropType cropType = CropType.NONE;
-  private float cornerRadius = -1;
+  private final int[] cornerRadius = new int[4];
+  private boolean specificCornerRadiusSet = true;
 
   public CropImageView(Context context) {
     super(context);
@@ -51,8 +56,7 @@ public class CropImageView extends ImageView {
   }
 
   @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-  public CropImageView(Context context, AttributeSet attrs, int defStyleAttr,
-                       int defStyleRes) {
+  public CropImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
     this.parseAttributes(attrs);
   }
@@ -86,6 +90,138 @@ public class CropImageView extends ImageView {
     return this.cropType;
   }
 
+  /**
+   * @return the largest corner radius.
+   */
+  public float getCornerRadius() {
+    return getMaxCornerRadius();
+  }
+
+  /**
+   * @return the largest corner radius.
+   */
+  public int getMaxCornerRadius() {
+    int maxRadius = DEFAULT_RADIUS;
+    for (int i = cornerRadius.length - 1; i >= 0; i--) {
+      maxRadius = Math.max(cornerRadius[i], maxRadius);
+    }
+
+    return maxRadius;
+  }
+
+  /**
+   * Get the corner radius of a specified corner.
+   *
+   * @param corner the corner.
+   * @return the radius.
+   */
+  public int getCornerRadius(@Corner int corner) {
+    return cornerRadius[corner];
+  }
+
+  /**
+   * Set the corner radii of all corners in px.
+   *
+   * @param radius the radius to set.
+   */
+  public void setCornerRadius(int radius) {
+    setCornerRadius(radius, radius, radius, radius);
+  }
+
+  /**
+   * Set the corner radius of a specific corner from a dimension resource id.
+   *
+   * @param corner the corner to set.
+   * @param resId the dimension resource id of the corner radius.
+   */
+  public void setCornerRadiusDimen(@Corner int corner, @DimenRes int resId) {
+    setCornerRadius(corner, getResources().getDimensionPixelSize(resId));
+  }
+
+  /**
+   * Set all the corner radii from a dimension resource id.
+   *
+   * @param resId dimension resource id of radii.
+   */
+  public void setCornerRadiusDimen(@DimenRes int resId) {
+    final int radius = getResources().getDimensionPixelOffset(resId);
+    setCornerRadius(radius, radius, radius, radius);
+  }
+
+  /**
+   * Set the corner radius of a specific corner in px.
+   *
+   * @param corner the corner to set.
+   * @param radius the corner radius to set in px.
+   */
+  public void setCornerRadius(@Corner int corner, int radius) {
+    if (radius < DEFAULT_RADIUS) throw new IllegalArgumentException("Non negative radius supported");
+
+    if (cornerRadius[corner] == radius) return;
+
+    cornerRadius[corner] = radius;
+
+    setDrawableCorners(getDrawable());
+    invalidate();
+  }
+
+  /**
+   * Set the corner radii of each corner individually. Currently only one unique nonzero value is
+   * supported.
+   *
+   * @param topLeft radius of the top left corner in px.
+   * @param topRight radius of the top right corner in px.
+   * @param bottomRight radius of the bottom right corner in px.
+   * @param bottomLeft radius of the bottom left corner in px.
+   */
+  public void setCornerRadius(int topLeft, int topRight, int bottomLeft, int bottomRight) {
+    if (topLeft < DEFAULT_RADIUS || topRight < DEFAULT_RADIUS || bottomLeft < DEFAULT_RADIUS || bottomRight < DEFAULT_RADIUS) throw new IllegalArgumentException("Non negative radius supported");
+
+    if (cornerRadius[CORNER_TOP_LEFT] == topLeft && cornerRadius[CORNER_TOP_RIGHT] == topRight && cornerRadius[CORNER_BOTTOM_RIGHT] == bottomRight && cornerRadius[CORNER_BOTTOM_LEFT] == bottomLeft) return;
+
+    cornerRadius[CORNER_TOP_LEFT] = topLeft;
+    cornerRadius[CORNER_TOP_RIGHT] = topRight;
+    cornerRadius[CORNER_BOTTOM_LEFT] = bottomLeft;
+    cornerRadius[CORNER_BOTTOM_RIGHT] = bottomRight;
+
+    setDrawableCorners(getDrawable());
+    invalidate();
+  }
+
+  @Override
+  public void setImageDrawable(Drawable drawable) {
+    final Drawable roundedDrawable = RoundedCornerDrawable.fromDrawable(drawable);
+    setDrawableCorners(roundedDrawable);
+
+    super.setImageDrawable(roundedDrawable);
+  }
+
+  @Override
+  public void setImageBitmap(Bitmap bm) {
+    final Drawable roundedDrawable = RoundedCornerDrawable.fromBitmap(bm);
+    setDrawableCorners(roundedDrawable);
+
+    super.setImageDrawable(roundedDrawable);
+  }
+
+  // TODO: Not sure if this is necessary
+  @Override
+  protected void drawableStateChanged() {
+    super.drawableStateChanged();
+
+    invalidate();
+  }
+
+  @Override
+  protected boolean setFrame(int l, int t, int r, int b) {
+    final boolean changed = super.setFrame(l, t, r, b);
+    if (!isInEditMode()) {
+      computeImageMatrix();
+    }
+
+    return changed;
+  }
+
   private void parseAttributes(AttributeSet attrs) {
     TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.CropImageView);
 
@@ -95,39 +231,47 @@ public class CropImageView extends ImageView {
       this.cropType = CropType.get(crop);
     }
 
-    cornerRadius = a.getDimensionPixelSize(R.styleable.CropImageView_cornerRadius, -1);
+    final int cornerRadiusOverride = a.getDimensionPixelSize(R.styleable.CropImageView_cornerRadius, DEFAULT_RADIUS);
+
+    cornerRadius[CORNER_TOP_LEFT] = a.getDimensionPixelSize(R.styleable.CropImageView_cornerRadiusTopLeft, DEFAULT_RADIUS);
+    cornerRadius[CORNER_TOP_RIGHT] = a.getDimensionPixelSize(R.styleable.CropImageView_cornerRadiusTopRight, DEFAULT_RADIUS);
+    cornerRadius[CORNER_BOTTOM_LEFT] = a.getDimensionPixelSize(R.styleable.CropImageView_cornerRadiusBottomLeft, DEFAULT_RADIUS);
+    cornerRadius[CORNER_BOTTOM_RIGHT] = a.getDimensionPixelSize(R.styleable.CropImageView_cornerRadiusBottomRight, DEFAULT_RADIUS);
+
+    for (int i = 0; i < cornerRadius.length && specificCornerRadiusSet; i++) {
+      specificCornerRadiusSet = cornerRadius[i] > DEFAULT_RADIUS;
+    }
+
+    if (cornerRadiusOverride > DEFAULT_RADIUS && !specificCornerRadiusSet) {
+      cornerRadius[CORNER_TOP_LEFT] = cornerRadiusOverride;
+      cornerRadius[CORNER_TOP_RIGHT] = cornerRadiusOverride;
+      cornerRadius[CORNER_BOTTOM_RIGHT] = cornerRadiusOverride;
+      cornerRadius[CORNER_BOTTOM_LEFT] = cornerRadiusOverride;
+
+      specificCornerRadiusSet = true;
+    }
+
     a.recycle();
   }
 
-  //needs to be set before drawable
-  public void setCornerRadius(float cornerRadius){
-    this.cornerRadius = cornerRadius;
-  }
+  private void setDrawableCorners(Drawable drawable) {
+    if (drawable == null) return;
 
-  public float getCornerRadius() {
-    return cornerRadius;
-  }
-
-  @Override
-  protected boolean setFrame(int l, int t, int r, int b) {
-    final boolean changed = super.setFrame(l, t, r, b);
-    if (!isInEditMode()) {
-      this.computeImageMatrix();
+    if (drawable instanceof RoundedCornerDrawable && specificCornerRadiusSet) {
+      ((RoundedCornerDrawable) drawable).setCornerRadius(cornerRadius[CORNER_TOP_LEFT], cornerRadius[CORNER_TOP_RIGHT], cornerRadius[CORNER_BOTTOM_LEFT], cornerRadius[CORNER_BOTTOM_RIGHT]);
+    } else if (drawable instanceof LayerDrawable) {
+      // Loop through layers to and set drawable attrs
+      LayerDrawable ld = ((LayerDrawable) drawable);
+      for (int i = 0, layers = ld.getNumberOfLayers(); i < layers; i++) {
+        setDrawableCorners(ld.getDrawable(i));
+      }
     }
-
-    return changed;
   }
 
-  @Override
-  public void setImageDrawable(Drawable drawable) {
 
-    if (cornerRadius > 0) {
-      drawable = RoundedCornerDrawable.fromDrawable(drawable);
-      ((RoundedCornerDrawable) drawable).setCornerRadius(cornerRadius);
-    }
 
-    super.setImageDrawable(drawable);
-  }
+
+
 
   private void computeImageMatrix() {
     final int viewWidth = getWidth() - getPaddingLeft() - getPaddingRight();
@@ -139,7 +283,7 @@ public class CropImageView extends ImageView {
 
       int drawableWidth;
       int drawableHeight;
-      if (cornerRadius > 0 && getDrawable() instanceof RoundedCornerDrawable) {
+      if (specificCornerRadiusSet && getDrawable() instanceof RoundedCornerDrawable) {
         drawableWidth = ((RoundedCornerDrawable) getDrawable()).getBitmapWidth();
         drawableHeight = ((RoundedCornerDrawable) getDrawable()).getBitmapHeight();
       } else {
@@ -161,7 +305,7 @@ public class CropImageView extends ImageView {
 
       matrix.postTranslate(xTranslation, yTranslation);
 
-      if (cornerRadius > 0 && getDrawable() instanceof RoundedCornerDrawable) {
+      if (specificCornerRadiusSet && getDrawable() instanceof RoundedCornerDrawable) {
         ((RoundedCornerDrawable) getDrawable()).setMatrix(matrix);
         setImageMatrix(null);
       } else {
@@ -170,8 +314,7 @@ public class CropImageView extends ImageView {
     }
   }
 
-  public static float getYTranslation(CropType cropType, int viewHeight, float postDrawabeHeigth,
-                                      boolean verticalImageMode) {
+  private float getYTranslation(CropType cropType, int viewHeight, float postDrawabeHeigth, boolean verticalImageMode) {
     if (verticalImageMode) {
       switch (cropType) {
         case CENTER_BOTTOM:
@@ -189,8 +332,7 @@ public class CropImageView extends ImageView {
     return 0;
   }
 
-  public static float getXTranslation(CropType cropType, int viewWidth, float postDrawableWidth,
-                                      boolean verticalImageMode) {
+  private float getXTranslation(CropType cropType, int viewWidth, float postDrawableWidth, boolean verticalImageMode) {
     if (!verticalImageMode) {
       switch (cropType) {
         case RIGHT_TOP:
