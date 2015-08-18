@@ -26,9 +26,6 @@ import android.widget.ImageView;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author cesards
- */
 public class CropImageView extends ImageView {
 
   private CropType cropType = CropType.NONE;
@@ -47,8 +44,8 @@ public class CropImageView extends ImageView {
     this.parseAttributes(attrs);
   }
 
-  @TargetApi(Build.VERSION_CODES.LOLLIPOP) public CropImageView(Context context, AttributeSet attrs, int defStyleAttr,
-      int defStyleRes) {
+  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+  public CropImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
     this.parseAttributes(attrs);
   }
@@ -109,7 +106,6 @@ public class CropImageView extends ImageView {
     if (cropType != CropType.NONE && viewHeight > 0 && viewWidth > 0) {
       final Matrix matrix = getImageMatrix();
 
-      
       int drawableWidth = getDrawable().getIntrinsicWidth();
       int drawableHeight = getDrawable().getIntrinsicHeight();
 
@@ -130,8 +126,7 @@ public class CropImageView extends ImageView {
     }
   }
 
-  private float getYTranslation(CropType cropType, int viewHeight, float postDrawabeHeigth,
-      boolean verticalImageMode) {
+  private float getYTranslation(CropType cropType, int viewHeight, float postDrawabeHeigth, boolean verticalImageMode) {
     if (verticalImageMode) {
       switch (cropType) {
         case CENTER_BOTTOM:
@@ -149,8 +144,7 @@ public class CropImageView extends ImageView {
     return 0;
   }
 
-  private float getXTranslation(CropType cropType, int viewWidth, float postDrawableWidth,
-      boolean verticalImageMode) {
+  private float getXTranslation(CropType cropType, int viewWidth, float postDrawableWidth, boolean verticalImageMode) {
     if (!verticalImageMode) {
       switch (cropType) {
         case RIGHT_TOP:

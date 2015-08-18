@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cesards.samples.cropimageview"
-    >
+<manifest package="com.cesards.samples.cropimageview"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  >
 
   <application
-      android:allowBackup="true"
-      android:icon="@drawable/ic_launcher"
-      android:label="@string/app_name"
-      android:theme="@style/AppTheme"
-      >
+    android:allowBackup="true"
+    android:icon="@drawable/ic_launcher"
+    android:label="@string/app_name"
+    android:theme="@style/AppTheme"
+    >
 
     <activity
-        android:name=".activity.MainActivity"
-        >
+      android:name=".activity.MainActivity"
+      >
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
@@ -21,12 +21,12 @@
     </activity>
 
     <activity
-        android:name=".activity.SimpleCropActivity"
-        />
+      android:name=".activity.SimpleCropActivity"
+      />
 
     <activity
-        android:name=".activity.CustomCropActivity"
-        />
+      android:name=".activity.CustomCropActivity"
+      />
   </application>
 
 </manifest>
