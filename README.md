@@ -133,7 +133,7 @@ I'm pretty sure you there are some awesome hidden features you need in your dail
 
 I'd like to improve this library with your help, there are some new features to implement waiting for you ;)
 
-If you want to contribut, you should use [my code styles](https://github.com/cesards/CropImageView/blob/master/codestyles_DogmaLabs.xml) available in the root of the project!
+If you want to contribute, you should use [my code styles](https://github.com/cesards/CropImageView/blob/master/codestyles_DogmaLabs.xml) available in the root of the project!
 
 License
 ---------
