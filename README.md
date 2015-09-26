@@ -1,5 +1,7 @@
 CropImageView
 =============
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0) [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
+
 
 An ImageView that supports different kind of cropping rather than the only Android is currently supporting: `centerCrop`
 
