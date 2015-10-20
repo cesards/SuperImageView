@@ -28,26 +28,30 @@ import java.util.Map;
 
 public class CropImageView extends ImageView {
 
+  private ImageMaths imageMaths;
   private CropType cropType = CropType.NONE;
 
   public CropImageView(Context context) {
     super(context);
+
+    initImageView();
   }
 
   public CropImageView(Context context, AttributeSet attrs) {
-    super(context, attrs);
-    this.parseAttributes(attrs);
+    this(context, attrs, 0);
   }
 
   public CropImageView(Context context, AttributeSet attrs, int defStyle) {
-    super(context, attrs, defStyle);
-    this.parseAttributes(attrs);
+    this(context, attrs, defStyle, 0);
   }
 
   @TargetApi(Build.VERSION_CODES.LOLLIPOP)
   public CropImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
-    this.parseAttributes(attrs);
+
+    parseAttributes(attrs);
+
+    initImageView();
   }
 
   /**
@@ -76,16 +80,20 @@ public class CropImageView extends ImageView {
    * @return a {@link CropType} in use by this ImageView
    */
   public CropType getCropType() {
-    return this.cropType;
+    return cropType;
+  }
+
+  private void initImageView() {
+    imageMaths = new ImageMathsFactory().getImageMaths(this);
   }
 
   private void parseAttributes(AttributeSet attrs) {
-    TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.CropImageView);
+    final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.CropImageView);
 
     final int crop = a.getInt(R.styleable.CropImageView_crop, CropType.NONE.getCrop());
     if (crop >= 0) {
       setScaleType(ScaleType.MATRIX);
-      this.cropType = CropType.get(crop);
+      cropType = CropType.get(crop);
     }
     a.recycle();
   }
@@ -94,7 +102,7 @@ public class CropImageView extends ImageView {
   protected boolean setFrame(int l, int t, int r, int b) {
     final boolean changed = super.setFrame(l, t, r, b);
     if (!isInEditMode()) {
-      this.computeImageMatrix();
+      computeImageMatrix();
     }
     return changed;
   }
@@ -104,10 +112,10 @@ public class CropImageView extends ImageView {
     final int viewHeight = getHeight() - getPaddingTop() - getPaddingBottom();
 
     if (cropType != CropType.NONE && viewHeight > 0 && viewWidth > 0) {
-      final Matrix matrix = getImageMatrix();
+      final Matrix matrix = imageMaths.getMatrix();
 
-      int drawableWidth = getDrawable().getIntrinsicWidth();
-      int drawableHeight = getDrawable().getIntrinsicHeight();
+      final int drawableWidth = getDrawable().getIntrinsicWidth();
+      final int drawableHeight = getDrawable().getIntrinsicHeight();
 
       final float scaleY = (float) viewHeight / (float) drawableHeight;
       final float scaleX = (float) viewWidth / (float) drawableWidth;
