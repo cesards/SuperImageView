@@ -125,6 +125,7 @@ Who's using it
 --------------
 * [Golden Manager](https://play.google.com/store/apps/details?id=com.keradgames.goldenmanager)
 * [Slipstream Music](https://play.google.com/store/apps/details?id=com.cypher.slipstream&hl=en)
+* [Vueling](https://play.google.com/store/apps/details?id=com.mo2o.vueling)
 * Does your app use CropImageView? Let me know if you want to be featured in this list :-)
 
 Do you want to contribute?
