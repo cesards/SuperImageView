@@ -12,12 +12,12 @@ buildscript {
 }
 
 android {
-  compileSdkVersion 21
+  compileSdkVersion 23
   buildToolsVersion "21.1.2"
   defaultConfig {
     applicationId 'com.cesards.android.samples.cropimageview'
     minSdkVersion 14
-    targetSdkVersion 21
+    targetSdkVersion 23
     versionCode 1
     versionName "1.0.1"
   }
@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:support-v4:22.2.0'
+  compile 'com.android.support:appcompat-v7:23.1.0'
   compile 'me.relex:circleindicator:1.1.1@aar'
   compile 'com.jakewharton:butterknife:6.1.0'
   compile 'com.cesards.android:foregroundviews:1.0.0'
