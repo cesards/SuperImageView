@@ -1,7 +1,6 @@
 package com.cesards.cropimageview;
 
 import android.support.annotation.NonNull;
-import android.widget.ImageView;
 
 public abstract class CropImage {
 

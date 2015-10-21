@@ -9,11 +9,4 @@
       android:layout_height="match_parent"
       />
 
-  <me.relex.circleindicator.CircleIndicator
-      android:id="@+id/crop_indicator"
-      android:layout_width="match_parent"
-      android:layout_height="40dp"
-      android:layout_gravity="bottom"
-      />
-
 </merge>
