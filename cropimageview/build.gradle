@@ -26,6 +26,11 @@ android {
     targetCompatibility JavaVersion.VERSION_1_7
   }
 }
+
+dependencies {
+  compile 'com.android.support:support-annotations:23.1.0'
+}
+
 // https://github.com/novoda/bintray-release
 // https://github.com/chrisbanes/gradle-mvn-push
 Properties properties = new Properties( )
