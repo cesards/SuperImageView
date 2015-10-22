@@ -28,15 +28,15 @@ Usage
 ##### Gradle
 ```groovy
 dependencies {
-   compile 'com.cesards.android:cropimageview:1.0.1'
+   compile 'com.cesards.android:CropImageView:1.0.2'
 }
 ```
 ##### Maven
 ```xml
 <dependency>
    <groupId>com.cesards.android</groupId>
-   <artifactId>cropimageview</artifactId>
-   <version>1.0.1</version>
+   <artifactId>CropImageView</artifactId>
+   <version>1.0.2</version>
    <type>aar</type>
 </dependency>
 ```
