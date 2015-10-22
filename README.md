@@ -99,6 +99,8 @@ Results: code used does not cause overhead in the UI thread.
 
 ChangeLog
 ---------
+* __1.0.2.1 (2015-10-22)__
+   * ImageView crashes in devices with API < 18 due to a `@TargetApi` annotation
 * __1.0.2 (2015-10-22)__
   * Changed `minSdkVersion` to 7
   * Solved a bug related with ImageView and API < 18
