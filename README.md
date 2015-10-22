@@ -99,6 +99,9 @@ Results: code used does not cause overhead in the UI thread.
 
 ChangeLog
 ---------
+* __1.0.2 (2015-10-22)__
+  * Changed `minSdkVersion` to 7
+  * Solved a bug related with ImageView and API < 18
 * __1.0.1 (2015-02-17)__
   * Changed Samples UI and removed unused resources.
   * Added performance tests to Samples

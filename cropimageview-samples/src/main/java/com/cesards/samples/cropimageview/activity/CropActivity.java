@@ -28,17 +28,16 @@ import butterknife.InjectView;
 import com.cesards.samples.cropimageview.BackgroundToForegroundTransformer;
 import com.cesards.samples.cropimageview.R;
 
-/**
- * @author cesards
- */
 public abstract class CropActivity extends BaseActivity {
 
-  @InjectView(R.id.crop_pager) ViewPager pagerView;
+  @InjectView(R.id.crop_pager)
+  ViewPager pagerView;
 
   protected abstract int getImagesCount();
   protected abstract ImageView instantiatePagerItem(int position);
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_crop);
@@ -54,7 +53,8 @@ public abstract class CropActivity extends BaseActivity {
 
   private class CropImageAdapter extends PagerAdapter {
 
-    @Override public Object instantiateItem(ViewGroup container, int position) {
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
       final ImageView imageView = instantiatePagerItem(position);
 
       final int matchParent = ViewGroup.LayoutParams.MATCH_PARENT;
@@ -63,15 +63,18 @@ public abstract class CropActivity extends BaseActivity {
       return imageView;
     }
 
-    @Override public void destroyItem(ViewGroup container, int position, Object object) {
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
       container.removeView((ImageView) object);
     }
 
-    @Override public int getCount() {
+    @Override
+    public int getCount() {
       return getImagesCount();
     }
 
-    @Override public boolean isViewFromObject(View view, Object object) {
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
       return view == object;
     }
   }
