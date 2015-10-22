@@ -42,7 +42,10 @@ public class CropImageView extends ImageView {
   }
 
   public CropImageView(Context context, AttributeSet attrs, int defStyle) {
-    this(context, attrs, defStyle, 0);
+    super(context, attrs, defStyle);
+
+    parseAttributes(attrs);
+    initImageView();
   }
 
   @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -50,7 +53,6 @@ public class CropImageView extends ImageView {
     super(context, attrs, defStyleAttr, defStyleRes);
 
     parseAttributes(attrs);
-
     initImageView();
   }
 
