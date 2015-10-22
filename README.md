@@ -1,5 +1,7 @@
 CropImageView
 =============
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0) [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
+
 
 An ImageView that supports different kind of cropping rather than the only Android is currently supporting: `centerCrop`
 
@@ -26,22 +28,22 @@ Usage
 ##### Gradle
 ```groovy
 dependencies {
-   compile 'com.cesards.android:cropimageview:1.0.1'
+   compile 'com.cesards.android:CropImageView:1.0.2'
 }
 ```
 ##### Maven
 ```xml
 <dependency>
    <groupId>com.cesards.android</groupId>
-   <artifactId>cropimageview</artifactId>
-   <version>1.0.1</version>
+   <artifactId>CropImageView</artifactId>
+   <version>1.0.2</version>
    <type>aar</type>
 </dependency>
 ```
 ### Step 2
 Define in xml:
 ```xml
-<com.cesards.cropimageview
+<com.cesards.cropimageview.CropImageView
    xmlns:custom="http://schemas.android.com/apk/res-auto"
    android:id="@+id/imageView1"
    android:src="@drawable/photo1"
@@ -97,6 +99,9 @@ Results: code used does not cause overhead in the UI thread.
 
 ChangeLog
 ---------
+* __1.0.2 (2015-10-22)__
+  * Changed `minSdkVersion` to 7
+  * Solved a bug related with ImageView and API < 18
 * __1.0.1 (2015-02-17)__
   * Changed Samples UI and removed unused resources.
   * Added performance tests to Samples
@@ -121,7 +126,9 @@ Developed By
 
 Who's using it
 --------------
-* [Golden Manager (Beta)](http://mobilebeta.goldenmanager.com/)
+* [Golden Manager](https://play.google.com/store/apps/details?id=com.keradgames.goldenmanager)
+* [Slipstream Music](https://play.google.com/store/apps/details?id=com.cypher.slipstream&hl=en)
+* [Vueling](https://play.google.com/store/apps/details?id=com.mo2o.vueling)
 * Does your app use CropImageView? Let me know if you want to be featured in this list :-)
 
 Do you want to contribute?
@@ -130,7 +137,7 @@ I'm pretty sure you there are some awesome hidden features you need in your dail
 
 I'd like to improve this library with your help, there are some new features to implement waiting for you ;)
 
-If you want to contribut, you should use [my code styles](https://github.com/cesards/CropImageView/blob/master/codestyles_DogmaLabs.xml) available in the root of the project!
+If you want to contribute, you should use [my code styles](https://github.com/cesards/CropImageView/blob/master/codestyles_DogmaLabs.xml) available in the root of the project!
 
 License
 ---------
