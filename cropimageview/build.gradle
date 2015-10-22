@@ -38,9 +38,8 @@ properties.load(project.rootProject.file('local.properties').
     newDataInputStream( ))
 
 publish {
-  userOrg = 'cesards'
-  repoName = 'maven'
-  artifactId = 'CropImageView'
+  userOrg = 'm3n0r'
+  artifactId = 'cropimageview'
   groupId = 'com.cesards.android'
   publishVersion = '1.0.1'
   desc =
