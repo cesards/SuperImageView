@@ -17,8 +17,8 @@ android {
   defaultConfig {
     minSdkVersion 7
     targetSdkVersion 23
-    versionCode 2
-    versionName "1.0.1"
+    versionCode 102
+    versionName "1.0.2"
   }
 
   compileOptions {
@@ -31,22 +31,13 @@ dependencies {
   compile 'com.android.support:support-annotations:23.1.0'
 }
 
-// https://github.com/novoda/bintray-release
-// https://github.com/chrisbanes/gradle-mvn-push
-Properties properties = new Properties( )
-properties.load(project.rootProject.file('local.properties').
-    newDataInputStream( ))
-
 publish {
   userOrg = 'cesards'
   repoName = 'maven'
   artifactId = 'CropImageView'
   groupId = 'com.cesards.android'
-  publishVersion = '1.0.1'
-  desc =
-      'Widget allows you crop from whatever side in an ImageView. Currently Android only supports centerCrop type of cropping'
+  publishVersion = '1.0.2'
+  desc = 'Widget allows you crop from whatever side in an ImageView. Currently Android only supports centerCrop type of cropping'
   licences = ["Apache-2.0"]
   website = 'https://github.com/cesards/CropImageView'
-  bintrayUser = properties.getProperty("bintray.user")
-  bintrayKey = properties.getProperty("bintray.apikey")
 }
