@@ -28,7 +28,7 @@ Usage
 ##### Gradle
 ```groovy
 dependencies {
-   compile 'com.cesards.android:CropImageView:1.0.2'
+   compile 'com.cesards.android:cropimageview:1.0.2.1'
 }
 ```
 ##### Maven
