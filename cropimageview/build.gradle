@@ -33,6 +33,7 @@ dependencies {
 publish {
   userOrg = 'm3n0r'
   artifactId = 'cropimageview'
+  uploadName = 'CropImageView'
   groupId = 'com.cesards.android'
   publishVersion = '1.0.2.1'
   desc = 'Widget allows you crop from whatever side in an ImageView. Currently Android only supports centerCrop type of cropping'
