@@ -117,13 +117,22 @@ Developed By
 * César Díez Sánchez - <cesaryomismo@gmail.com>
 
 <a href="https://twitter.com/menorking">
-  <img alt="Follow me on Twitter" src="http://imageshack.us/a/img812/3923/smallth.png" />
+  <img alt="Follow me on Twitter" src="http://i.imgur.com/tOcxVE1.png" />
 </a>
 <a href="https://plus.google.com/115273462230054581675">
-  <img alt="Follow me on Google Plus" src="http://imageshack.us/a/img203/4712/smallg.png" />
+  <img alt="Follow me on Google Plus" src="http://i.imgur.com/5OGgRxL.png" />
+</a>
+<a href="https://medium.com/@cesards">
+  <img alt="Follow me on Medium" src="http://i.imgur.com/T8Endql.png" />
+</a>
+<a href="https://www.pinterest.com/menorking/">
+  <img alt="Follow me on Pinterest" src="http://i.imgur.com/Iryx3Uh.png" />
+</a>
+<a href="https://dribbble.com/cesards">
+  <img alt="Follow me on Dribbble" src="http://i.imgur.com/GkSFemS.png" />
 </a>
 <a href="http://www.linkedin.com/in/cesardiezsanchez">
-  <img alt="Add me to Linkedin" src="http://imageshack.us/a/img41/7877/smallld.png" />
+  <img alt="Add me to Linkedin" src="http://i.imgur.com/oZrZMyb.png" />
 </a>
 
 Who's using it
