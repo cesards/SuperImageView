@@ -117,13 +117,13 @@ Developed By
 * César Díez Sánchez - <cesaryomismo@gmail.com>
 
 <a href="https://twitter.com/menorking">
-  <img alt="Follow me on Twitter" src="http://i.imgur.com/tOcxVE1.png" />
+  <img alt="Follow me on Twitter" src="http://i.imgur.com/tOcxVE1.png" style="width: 70%; height: 70%" />
 </a>
 <a href="https://plus.google.com/115273462230054581675">
-  <img alt="Follow me on Google Plus" src="http://i.imgur.com/5OGgRxL.png" />
+  <img alt="Follow me on Google Plus" src="http://i.imgur.com/5OGgRxL.png" style="width: 60%; height: 60%" />
 </a>
 <a href="https://medium.com/@cesards">
-  <img alt="Follow me on Medium" src="http://i.imgur.com/T8Endql.png" />
+  <img alt="Follow me on Medium" src="http://i.imgur.com/T8Endql.png" style="width: 50%; height: 50%"  />
 </a>
 <a href="https://www.pinterest.com/menorking/">
   <img alt="Follow me on Pinterest" src="http://i.imgur.com/Iryx3Uh.png" />
