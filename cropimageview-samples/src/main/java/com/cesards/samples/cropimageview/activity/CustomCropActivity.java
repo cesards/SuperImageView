@@ -20,7 +20,7 @@ import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 import com.cesards.cropimageview.model.CropType;
 import com.cesards.samples.cropimageview.R;
-import com.cesards.samples.cropimageview.widget.TestForegroundCropImageView;
+import com.cesards.samples.cropimageview.widget.ForegroundCropImageView;
 
 public class CustomCropActivity extends CropActivity {
 
@@ -35,7 +35,7 @@ public class CustomCropActivity extends CropActivity {
 
   @Override
   protected ImageView instantiatePagerItem(int position) {
-    TestForegroundCropImageView testCropImageView = new TestForegroundCropImageView(CustomCropActivity.this);
+    ForegroundCropImageView testCropImageView = new ForegroundCropImageView(CustomCropActivity.this);
 
     int image = images[position];
     if (image != -1) {
