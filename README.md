@@ -1,5 +1,21 @@
-CropImageView
-=============
+<h1 align="center">CropImageView</h1>
+
+<p align="center">
+  <a target="_blank" href="https://android-arsenal.com/api?level=7"><img src="https://img.shields.io/badge/API-7%2B-brightgreen.svg?style=flat-square"></a>
+  <a target="_blank" href="http://android-arsenal.com/details/1/1546"><img src="https://img.shields.io/badge/Android%20Arsenal-AppUpdater-blue.svg?style=flat-square"></a>
+  <a target="_blank" href="https://circleci.com/gh/cesards/CropImageView"><img src="https://img.shields.io/circleci/project/BrightFlair/PHP.Gt/master.svgstyle=flat-square"></a>
+</p>
+
+
+
+
+<p align="center">
+  <a target="_blank" href="https://travis-ci.org/javiersantos/WhatsAppBetaUpdater"><img src="https://travis-ci.org/javiersantos/WhatsAppBetaUpdater.svg?branch=master"></a>
+  <a target="_blank" href="http://android-arsenal.com/details/3/3047"><img src="https://img.shields.io/badge/Android%20Arsenal-Beta%20Updater%20for%20WhatsApp-blue.svg"></a>
+</p>
+
+
+
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0) [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 
 
@@ -47,7 +63,7 @@ Define in xml:
    xmlns:custom="http://schemas.android.com/apk/res-auto"
    android:id="@+id/imageView1"
    android:src="@drawable/photo1"
-   custom:crop="value" />
+   custom:civ_crop="value" />
 ```
 where `value` can take values
 ```xml
@@ -55,7 +71,7 @@ topLeft|centerLeft|bottomLeft|topRight|centerRight|bottomRight|centerTop|centerB
 ```
 Or in code:
 ```java
-CropImageView cropImageView = new CropImageView(CropActivity.this);
+final CropImageView cropImageView = new CropImageView(CropActivity.this);
 final Resources res = getResources();
 cropImageView.setImageDrawable(res.getDrawable(images[position]));
 final CropImageView.CropType cropType = imageCrops[position];
@@ -103,14 +119,14 @@ ChangeLog
    * ImageView crashes in devices with API < 18 due to a `@TargetApi` annotation
 * __1.0.2 (2015-10-22)__
   * Changed `minSdkVersion` to 7
-  * Solved a bug related with ImageView and API < 18
+  * Solved a bug related with ImageView and API < 18.
 * __1.0.1 (2015-02-17)__
   * Changed Samples UI and removed unused resources.
-  * Added performance tests to Samples
-  * Added code styles for contributions
-  * Improved CropImageView` widget. Removed `onLayout()` overhead. `ImageView`'s `onLayout()` is emoty, so we only need logic in `setFrame()` method
+  * Added performance tests to Samples.
+  * Added code styles for contributions.
+  * Improved CropImageView widget. Removed `onLayout()` overhead. `ImageView` `onLayout()` is empty, so we only need logic in `setFrame()` method.
 * __1.0.0 (2015-02-15)__
-  * Initial release. (```minSdkVersion="14"```)
+  * Initial release. (`minSdkVersion="14"`).
 
 Developed By
 ------------
@@ -141,19 +157,28 @@ I'd like to improve this library with your help, there are some new features to 
 
 If you want to contribute, you should use [my code styles](https://github.com/cesards/CropImageView/blob/master/codestyles_DogmaLabs.xml) available in the root of the project!
 
-License
----------
+<br>
 
-   Copyright 2015 César Díez Sánchez
+<h2 align="center">License</h1>
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+The MIT License (MIT)
 
-       http://www.apache.org/licenses/LICENSE-2.0
+Copyright (c) 2016 César Díez Sánchez
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
