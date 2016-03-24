@@ -1,4 +1,17 @@
 ## Customize the test machine
+machine:
+  environment:
+    _JAVA_OPTIONS: "-Xms512m -Xmx2048m"
+    GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xms512m -Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+    ANDROID_HOME: /usr/local/android-sdk-linux
+
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter "tools,platform-tools,android-23"
+    - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.2,extra-google-m2repository,extra-android-support"
+
 test:
   override:
+    # When running the apk build, unit tests, lint, checkstyle etc sequentially is slow, so we run them in parallel.
+    # Using bash case statement, choose which command to run on which node (machine).
     - ./gradlew assembleDebug

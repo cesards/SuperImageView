@@ -2,19 +2,9 @@
 
 <p align="center">
   <a target="_blank" href="https://android-arsenal.com/api?level=7"><img src="https://img.shields.io/badge/API-7%2B-brightgreen.svg?style=flat-square"></a>
-  <a target="_blank" href="http://android-arsenal.com/details/1/1546"><img src="https://img.shields.io/badge/Android%20Arsenal-AppUpdater-blue.svg?style=flat-square"></a>
+  <a target="_blank" href="http://android-arsenal.com/details/1/1546"><img src="https://img.shields.io/badge/Android%20Arsenal-CropImageView-blue.svg?style=flat-square"></a>
   <a target="_blank" href="https://circleci.com/gh/cesards/CropImageView"><img src="https://img.shields.io/circleci/project/BrightFlair/PHP.Gt/master.svgstyle=flat-square"></a>
 </p>
-
-
-
-
-<p align="center">
-  <a target="_blank" href="https://travis-ci.org/javiersantos/WhatsAppBetaUpdater"><img src="https://travis-ci.org/javiersantos/WhatsAppBetaUpdater.svg?branch=master"></a>
-  <a target="_blank" href="http://android-arsenal.com/details/3/3047"><img src="https://img.shields.io/badge/Android%20Arsenal-Beta%20Updater%20for%20WhatsApp-blue.svg"></a>
-</p>
-
-
 
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0) [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 
