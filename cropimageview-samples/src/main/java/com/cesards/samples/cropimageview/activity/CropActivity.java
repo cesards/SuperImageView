@@ -23,14 +23,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 import com.cesards.samples.cropimageview.BackgroundToForegroundTransformer;
 import com.cesards.samples.cropimageview.R;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public abstract class CropActivity extends BaseActivity {
 
-  @InjectView(R.id.crop_pager)
+  @Bind(R.id.crop_pager)
   ViewPager pagerView;
 
   protected abstract int getImagesCount();
@@ -41,7 +41,7 @@ public abstract class CropActivity extends BaseActivity {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_crop);
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
 
     this.initData();
   }

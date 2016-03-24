@@ -16,60 +16,38 @@
 
 package com.cesards.samples.cropimageview.activity;
 
-import android.content.res.Resources;
+import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
-
-import com.cesards.cropimageview.CropImageView;
+import com.cesards.cropimageview.model.CropType;
 import com.cesards.samples.cropimageview.R;
 import com.cesards.samples.cropimageview.widget.TestForegroundCropImageView;
 
-/**
- * @author cesards
- */
 public class CustomCropActivity extends CropActivity {
 
-    private CropImageView.CropType[] imageCrops = {
-            // Zombie sample
-            CropImageView.CropType.CENTER_TOP,
-            CropImageView.CropType.LEFT_CENTER,
-            CropImageView.CropType.CENTER_BOTTOM,
-            // Ball sample
-            CropImageView.CropType.LEFT_CENTER,
-            CropImageView.CropType.CENTER_TOP,
-            CropImageView.CropType.RIGHT_CENTER,
-    };
+  private static final int[] images = {
+      CropType.NONE,
+  };
 
-    private int[] images = {
-            R.drawable.zombie,
-            R.drawable.zombie,
-            R.drawable.zombie,
-            R.drawable.ball_centered_bottom_ball,
-            R.drawable.ball_centered_bottom_ball,
-            R.drawable.ball_centered_bottom_ball,
-            -1,
-    };
+  @Override
+  protected int getImagesCount() {
+    return images.length;
+  }
 
-    @Override
-    protected int getImagesCount() {
-        return images.length;
+  @Override
+  protected ImageView instantiatePagerItem(int position) {
+    TestForegroundCropImageView testCropImageView = new TestForegroundCropImageView(CustomCropActivity.this);
+
+    int image = images[position];
+    if (image != -1) {
+      testCropImageView.setImageDrawable(ContextCompat.getDrawable(this, image));
+      testCropImageView.setForeground(ContextCompat.getDrawable(this, R.drawable.shape_grad_black_transp_70));
+      @CropType final int cropType = images[position];
+      testCropImageView.setCropType(cropType);
+      testCropImageView.setId(cropType);
+    } else {
+      testCropImageView.setImageDrawable(null);
     }
 
-    @Override
-    protected ImageView instantiatePagerItem(int position) {
-        TestForegroundCropImageView testCropImageView = new TestForegroundCropImageView(CustomCropActivity.this);
-
-        int image = images[position];
-        if (image != -1) {
-            final Resources res = getResources();
-            testCropImageView.setImageDrawable(res.getDrawable(image));
-            testCropImageView.setForeground(res.getDrawable(R.drawable.shape_grad_black_transp_70));
-            final CropImageView.CropType cropType = imageCrops[position];
-            testCropImageView.setCropType(cropType);
-            testCropImageView.setId(cropType.getCrop());
-        } else {
-            testCropImageView.setImageDrawable(null);
-        }
-
-        return testCropImageView;
-    }
+    return testCropImageView;
+  }
 }
