@@ -3,7 +3,7 @@ apply plugin: 'hugo'
 
 buildscript {
   repositories {
-    jcenter( )
+    jcenter()
   }
 
   dependencies {
@@ -23,13 +23,16 @@ android {
     versionName "1.0.2"
   }
 
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_7
-    targetCompatibility JavaVersion.VERSION_1_7
+  buildTypes {
+    release {
+      minifyEnabled false
+      shrinkResources true
+    }
   }
 
   lintOptions {
     abortOnError false
+    textReport true
   }
 
   productFlavors {}
@@ -39,5 +42,12 @@ dependencies {
   compile 'com.android.support:appcompat-v7:23.1.0'
   compile 'com.jakewharton:butterknife:6.1.0'
   compile 'com.cesards.android:foregroundviews:1.0.0'
+  compile 'com.github.pedrovgs:renderers:2.0.3'
+
+  compile 'com.android.support:support-v13:23.1.0'
+  compile 'com.android.support:support-v4:23.1.0'
+  compile 'com.android.support:recyclerview-v7:23.1.0'
+  compile 'com.jakewharton:butterknife:7.0.1'
+
   compile project(':cropimageview')
 }
