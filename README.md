@@ -1,13 +1,12 @@
 <h1 align="center">CropImageView</h1>
 
 <p align="center">
-  <a target="_blank" href="https://android-arsenal.com/api?level=7"><img src="https://img.shields.io/badge/API-7%2B-brightgreen.svg?style=flat-square"></a>
-  <a target="_blank" href="http://android-arsenal.com/details/1/1546"><img src="https://img.shields.io/badge/Android%20Arsenal-CropImageView-blue.svg?style=flat-square"></a>
-  <a target="_blank" href="https://circleci.com/gh/cesards/CropImageView"><img src="https://img.shields.io/circleci/project/BrightFlair/PHP.Gt/master.svgstyle=flat-square"></a>
+  <a href="http://developer.android.com/index.html"><img src="https://img.shields.io/badge/platform-android-green.svg?style=flat-square"></a>
+  <a href="https://android-arsenal.com/api?level=7"><img src="https://img.shields.io/badge/API-7%2B-brightgreen.svg?style=flat-square"></a>
+  <a href="http://android-arsenal.com/details/1/1546"><img src="https://img.shields.io/badge/Android%20Arsenal-CropImageView-blue.svg?style=flat-square"></a>
+  <a href="https://circleci.com/gh/cesards/CropImageView"><img src="https://img.shields.io/circleci/project/BrightFlair/PHP.Gt/master.svg?style=flat-square"></a>
+  <a href="https://github.com/cesards/CropImageView/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square"></a>
 </p>
-
-[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0) [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
-
 
 An ImageView that supports different kind of cropping rather than the only Android is currently supporting: `centerCrop`
 
@@ -160,7 +159,7 @@ If you want to contribute, you should use [my code styles](https://github.com/ce
 
 <h2 align="center">License</h1>
 
-The MIT License (MIT)
+__The MIT License (MIT)__
 
 Copyright (c) 2016 César Díez Sánchez
 
