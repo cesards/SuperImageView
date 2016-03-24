@@ -1,0 +1,4 @@
+## Customize the test machine
+test:
+  override:
+    - ./gradlew assembleDebug
