@@ -1,32 +1,45 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/activity_margin"
+    android:paddingTop="@dimen/activity_margin">
 
-  <Button
-      android:padding="@dimen/activity_horizontal_margin"
+  <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="1"
-      android:id="@+id/main_crop_simple"
-      android:gravity="center"
-      android:background="@android:color/white"
-      android:textColor="@color/black_70"
-      android:text="@string/sample_center_crop"
-      />
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="@dimen/activity_margin"
+      android:layout_marginRight="@dimen/activity_margin"
+      android:orientation="vertical">
 
-  <Button
-      android:padding="@dimen/activity_horizontal_margin"
-      android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="1"
-      android:textSize="18sp"
-      android:id="@+id/main_crop_custom"
-      android:gravity="center"
-      android:textColor="@android:color/white"
-      android:background="@color/black_70"
-      android:text="@string/sample_custom_crop"
-      />
+    <Button
+        android:id="@+id/main_button_crop_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/left_crop"/>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/main_button_crop_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/right_crop"/>
+
+    <Button
+        android:id="@+id/main_button_crop_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/top_crop"/>
+
+    <Button
+        android:id="@+id/main_button_crop_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/bottom_crop"/>
+
+  </LinearLayout>
+</ScrollView>

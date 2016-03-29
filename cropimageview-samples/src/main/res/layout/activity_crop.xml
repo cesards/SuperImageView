@@ -1,12 +1,24 @@
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical">
+
+  <android.support.design.widget.TabLayout
+      android:id="@+id/crop_tabs_container"
+      style="@style/AppTabLayout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:elevation="6dp"
+      android:minHeight="?attr/actionBarSize"
+      custom:tabGravity="fill"
+      custom:tabMode="fixed"/>
 
   <android.support.v4.view.ViewPager
-      android:id="@+id/crop_pager"
+      android:id="@+id/crop_pager_container"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      />
+      android:layout_height="match_parent"/>
 
-</merge>
+</LinearLayout>
