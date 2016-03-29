@@ -4,5 +4,12 @@
   <string name="app_name">CropImageView Samples</string>
   <string name="sample_center_crop">SHOW ME centered crop image samples</string>
   <string name="sample_custom_crop">SHOW ME custom crop image samples</string>
+  <string name="left_crop">Left Crop</string>
+  <string name="right_crop">Right Crop</string>
+  <string name="top_crop">Top Crop</string>
+  <string name="bottom_crop">Bottom Crop</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,7 +1,17 @@
 <resources>
 
   <!-- Base application theme. -->
-  <style name="AppTheme"
-    parent="Theme.AppCompat.NoActionBar"/>
+  <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryDark">@color/primary_dark</item>
+    <item name="colorAccent">@color/accent</item>
+    <item name="colorButtonNormal">@color/primary</item>
+    <item name="android:textColorPrimary">#ffffff</item>
+  </style>
+
+  <style name="AppTabLayout" parent="Widget.Design.TabLayout">
+    <item name="tabBackground">@color/primary</item>
+    <item name="tabIndicatorHeight">4dp</item>
+  </style>
 
 </resources>
