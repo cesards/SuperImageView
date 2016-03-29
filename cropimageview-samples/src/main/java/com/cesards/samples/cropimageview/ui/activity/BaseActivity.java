@@ -14,27 +14,17 @@
  * limitations under the License.
  */
 
-package com.cesards.samples.cropimageview.activity;
+package com.cesards.samples.cropimageview.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import com.cesards.samples.cropimageview.R;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends BaseActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-    ButterKnife.bind(this);
-  }
 
-  @OnClick(R.id.main_crop_simple) public void onCenteredCropsClick() {
-    startActivity(new Intent(MainActivity.this, SimpleCropActivity.class));
-  }
-
-  @OnClick(R.id.main_crop_custom) public void onCustomCropsClick() {
-    startActivity(new Intent(MainActivity.this, CustomCropActivity.class));
+    new ScreenMode(this).loadLowProfileMode();
   }
 }

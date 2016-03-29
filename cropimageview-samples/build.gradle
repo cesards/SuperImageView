@@ -1,15 +1,5 @@
 apply plugin: 'com.android.application'
 
-buildscript {
-  repositories {
-    jcenter()
-  }
-
-  dependencies {
-    classpath 'com.jakewharton.hugo:hugo-plugin:1.2.0'
-  }
-}
-
 android {
   compileSdkVersion 23
   buildToolsVersion "21.1.2"
@@ -38,11 +28,21 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:appcompat-v7:23.2.1'
-  compile 'com.jakewharton:butterknife:6.1.0'
-  compile 'com.android.support:support-v13:23.2.1'
-  compile 'com.android.support:support-v4:23.2.1'
-  compile 'com.jakewharton:butterknife:7.0.1'
-
+  // UI
   compile project(':cropimageview')
+
+  // Testing
+  androidTestCompile('com.android.support.test:runner:0.5') {
+    exclude module: 'support-annotations'
+  }
+  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.1') {
+    exclude module: 'support-annotations'
+  }
+  compile 'com.android.support:appcompat-v7:23.2.1'
+  compile 'com.android.support:support-v13:23.2.1'
+  compile 'com.android.support:percent:23.2.1'
+  compile 'com.android.support:design:23.2.1'
+  compile 'com.android.support:recyclerview-v7:23.2.1'
+  compile 'com.jakewharton:butterknife:7.0.1'
+  compile 'com.android.support:support-v4:23.2.1'
 }
