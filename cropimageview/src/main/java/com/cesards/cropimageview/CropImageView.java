@@ -84,10 +84,16 @@ public class CropImageView extends ImageView {
   @Override
   protected boolean setFrame(int l, int t, int r, int b) {
     final boolean changed = super.setFrame(l, t, r, b);
-    if (!isInEditMode()) {
+    if (!isInEditMode() && cropImage != null && getDrawable() != null) {
       cropImage.computeImageTransformation();
     }
     return changed;
+  }
+
+  @Override
+  public void setImageBitmap(Bitmap bm) {
+    super.setImageBitmap(bm);
+    initImageView();
   }
 
   private void parseAttributes(AttributeSet attrs) {
@@ -98,9 +104,24 @@ public class CropImageView extends ImageView {
     a.recycle();
   }
 
+  @Override
+  public void setImageDrawable(Drawable drawable) {
+    super.setImageDrawable(drawable);
+    initImageView();
+  }
+
+  @Override
+  public void setImageResource(int resId) {
+    super.setImageResource(resId);
+    initImageView();
+  }
+
   private void initImageView() {
     setScaleType(ScaleType.MATRIX);
 
-    cropImage = new CropImageFactory().getCropImage(this);
+    if (getDrawable() != null) {
+      cropImage = new CropImageFactory().getCropImage(this);
+    }
   }
+
 }
