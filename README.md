@@ -52,7 +52,7 @@ Define in xml:
    xmlns:custom="http://schemas.android.com/apk/res-auto"
    android:id="@+id/imageView1"
    android:src="@drawable/photo1"
-   custom:civ_crop="value" />
+   custom:crop="value" />
 ```
 where `value` can take values
 ```xml
