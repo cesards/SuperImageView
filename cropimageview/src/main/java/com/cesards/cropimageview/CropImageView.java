@@ -22,6 +22,7 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import com.cesards.cropimageview.model.CropImage;
 import com.cesards.cropimageview.model.CropImageFactory;
