@@ -1,26 +1,27 @@
 package com.cesards.cropimageview.model;
 
 import android.graphics.Matrix;
+import android.widget.ImageView;
+
 import com.cesards.cropimageview.CropImageView;
 
-public class PreApi18CropImage extends CropImage {
+public final class PreApi18CropImage extends CropImage {
 
   private Matrix matrix;
 
-  PreApi18CropImage(CropImageView imageView) {
-    super(imageView);
-
-    init(imageView);
+  PreApi18CropImage(final ImageView imageView, final @CropType int cropType) {
+    super(imageView, cropType);
+    init(cropType);
   }
 
-  private void init(CropImageView imageView) {
-    if (imageView.getCropType() != CropType.NONE) {
+  private void init(@CropType int cropType) {
+    if (cropType != CropType.NONE) {
       matrix = new Matrix();
     }
   }
 
   @Override
   public Matrix getMatrix() {
-    return matrix == null ? cropImageView.getImageMatrix() : matrix;
+    return matrix == null ? imageView.getImageMatrix() : matrix;
   }
 }

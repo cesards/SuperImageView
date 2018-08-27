@@ -1,0 +1,20 @@
+apply plugin: 'com.novoda.bintray-release'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.8.1'
+    }
+}
+
+publish {
+    userOrg = 'cesards'
+    groupId = 'cropimageview'
+    artifactId = 'CropImageView'
+    publishVersion = '1.0.2.1'
+    desc = 'Widget allows you crop from whatever side in an ImageView. Currently Android only supports centerCrop type of cropping'
+    licences = ["Apache-2.0"]
+    website = 'https://github.com/cesards/CropImageView'
+}

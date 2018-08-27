@@ -1,8 +1,9 @@
 package com.cesards.cropimageview.model;
 
-import android.support.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import androidx.annotation.IntDef;
 
 /**
  * Options for cropping the bounds of an image to the bounds of the ImageView.

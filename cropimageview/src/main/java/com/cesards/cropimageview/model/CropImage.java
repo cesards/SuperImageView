@@ -2,27 +2,28 @@ package com.cesards.cropimageview.model;
 
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import com.cesards.cropimageview.CropImageView;
+import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
 
 public abstract class CropImage implements Transformation {
 
-  @NonNull
-  final CropImageView cropImageView;
+  @NonNull final ImageView imageView;
+  @CropType private final int cropType;
 
-  public CropImage(@NonNull CropImageView cropImageView) {
-    this.cropImageView = cropImageView;
+  public CropImage(@NonNull ImageView imageView, @CropType int cropType) {
+    this.imageView = imageView;
+    this.cropType = cropType;
   }
 
   public void computeImageTransformation() {
-    int viewWidth = cropImageView.getWidth() - cropImageView.getPaddingLeft() - cropImageView.getPaddingRight();
-    int viewHeight = cropImageView.getHeight() - cropImageView.getPaddingTop() - cropImageView.getPaddingBottom();
+    int viewWidth = imageView.getWidth() - imageView.getPaddingLeft() - imageView.getPaddingRight();
+    int viewHeight = imageView.getHeight() - imageView.getPaddingTop() - imageView.getPaddingBottom();
 
-    int cropType = cropImageView.getCropType();
     if (cropType != CropType.NONE && viewHeight > 0 && viewWidth > 0) {
       Matrix matrix = getMatrix();
 
-      Drawable drawable = cropImageView.getDrawable();
+      Drawable drawable = imageView.getDrawable();
       int drawableWidth = drawable.getIntrinsicWidth();
       int drawableHeight = drawable.getIntrinsicHeight();
 
@@ -39,7 +40,7 @@ public abstract class CropImage implements Transformation {
       float yTranslation = getYTranslation(cropType, viewHeight, postDrawabeHeigth, verticalImageMode);
 
       matrix.postTranslate(xTranslation, yTranslation);
-      cropImageView.setImageMatrix(matrix);
+      imageView.setImageMatrix(matrix);
     }
   }
 

@@ -1,48 +1,10 @@
-apply plugin: 'com.android.application'
-
-buildscript {
-  repositories {
-    jcenter()
-  }
-
-  dependencies {
-    classpath 'com.jakewharton.hugo:hugo-plugin:1.2.0'
-  }
-}
-
-android {
-  compileSdkVersion 23
-  buildToolsVersion "21.1.2"
-
-  defaultConfig {
-    applicationId 'com.cesards.android.samples.cropimageview'
-    minSdkVersion 14
-    targetSdkVersion 23
-    versionCode 102
-    versionName "1.0.2"
-  }
-
-  buildTypes {
-    release {
-      minifyEnabled false
-      shrinkResources true
-    }
-  }
-
-  lintOptions {
-    abortOnError false
-    textReport true
-  }
-
-  productFlavors {}
-}
+apply from: "${rootDir}/buildsystem/android-application.gradle"
+//apply from: "${rootDir}/buildsystem/tooling.gradle"
 
 dependencies {
-  compile 'com.android.support:appcompat-v7:23.2.1'
-  compile 'com.jakewharton:butterknife:6.1.0'
-  compile 'com.android.support:support-v13:23.2.1'
-  compile 'com.android.support:support-v4:23.2.1'
-  compile 'com.jakewharton:butterknife:7.0.1'
-
-  compile project(':cropimageview')
+    implementation 'androidx.core:core:1.0.0-rc01'
+    implementation project(':cropimageview')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.google.android.material:material:1.0.0-rc01'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

@@ -1,0 +1,27 @@
+apply plugin: 'com.android.application'
+apply from: "${rootDir}/buildsystem/android.gradle"
+
+android {
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    bundle {
+        density.enableSplit = true
+        abi.enableSplit = true
+        language.enableSplit = true
+    }
+
+    /** Due to third party libraries. Not good to exclude everytyhing since APK signature v1 is there */
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/*.version'
+    }
+}

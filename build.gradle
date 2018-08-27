@@ -1,14 +1,20 @@
+apply from: "${rootDir}/buildsystem/dependencies.gradle"
+
 buildscript {
   repositories {
     jcenter()
+    google()
   }
+
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.1.0-alpha3'
+    classpath 'com.android.tools.build:gradle:3.3.0-alpha07'
   }
 }
 
 allprojects {
   repositories {
+    maven { url 'https://jitpack.io' }
+    google()
     jcenter()
   }
 }

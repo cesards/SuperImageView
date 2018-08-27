@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-  <string name="app_name">CropImageView Samples</string>
-  <string name="sample_center_crop">SHOW ME centered crop image samples</string>
-  <string name="sample_custom_crop">SHOW ME custom crop image samples</string>
-
+    <string name="app_name">CropImageView Samples</string>
+    <string name="title_activity_simple_network_crop">SimpleNetworkCrop</string>
+    <string name="title_activity_test">TestActivity</string>
 </resources>
