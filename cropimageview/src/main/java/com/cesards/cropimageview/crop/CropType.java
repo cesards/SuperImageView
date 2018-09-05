@@ -1,4 +1,4 @@
-package com.cesards.cropimageview.model;
+package com.cesards.cropimageview.crop;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -8,6 +8,7 @@ import androidx.annotation.IntDef;
 /**
  * Options for cropping the bounds of an image to the bounds of the ImageView.
  */
+@Retention(RetentionPolicy.SOURCE)
 @IntDef({
     CropType.NONE,
     CropType.LEFT_TOP,
@@ -19,7 +20,6 @@ import androidx.annotation.IntDef;
     CropType.CENTER_TOP,
     CropType.CENTER_BOTTOM,
 })
-@Retention(RetentionPolicy.SOURCE)
 public @interface CropType {
 
   int NONE = -1;

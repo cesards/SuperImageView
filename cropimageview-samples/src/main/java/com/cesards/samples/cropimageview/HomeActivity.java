@@ -3,6 +3,7 @@ package com.cesards.samples.cropimageview;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.cesards.samples.cropimageview.rounded_corners.RoundedCornerImagesActivity;
 import com.cesards.samples.cropimageview.simple_crop.SimpleCropActivity;
 import com.cesards.samples.cropimageview.simple_network_crop.SimpleNetworkCropActivity;
 import com.cesards.samples.cropimageview.test.TestActivity;
@@ -24,6 +25,8 @@ public class HomeActivity extends AppCompatActivity {
         findViewById(R.id.test).setOnClickListener(view ->
                 startActivity(new Intent(this, TestActivity.class))
         );
+        findViewById(R.id.rounded_corners).setOnClickListener(view ->
+                startActivity(new Intent(this, RoundedCornerImagesActivity.class))
+        );
     }
-
 }

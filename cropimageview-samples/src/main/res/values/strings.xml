@@ -3,4 +3,5 @@
     <string name="app_name">CropImageView Samples</string>
     <string name="title_activity_simple_network_crop">SimpleNetworkCrop</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_rounded_corner_images">RoundedCornerImagesActivity</string>
 </resources>

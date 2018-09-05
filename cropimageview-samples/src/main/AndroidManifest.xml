@@ -20,7 +20,11 @@
             android:label="@string/title_activity_simple_network_crop" />
         <activity
             android:name=".test.TestActivity"
-            android:label="@string/title_activity_test"></activity>
+            android:label="@string/title_activity_test" />
+        <activity
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:name=".rounded_corners.RoundedCornerImagesActivity"
+            android:label="@string/title_activity_rounded_corner_images"></activity>
     </application>
 
 </manifest>

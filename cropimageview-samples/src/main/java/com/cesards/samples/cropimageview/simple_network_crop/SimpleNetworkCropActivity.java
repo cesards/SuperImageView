@@ -1,19 +1,18 @@
 package com.cesards.samples.cropimageview.simple_network_crop;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 
 import com.cesards.cropimageview.CropImageView;
-import com.cesards.cropimageview.model.CropType;
+import com.cesards.cropimageview.crop.CropType;
 import com.cesards.samples.cropimageview.R;
 import com.cesards.samples.cropimageview._activity.CommonImagesAdapter;
 import com.cesards.samples.cropimageview._util.SystemUiHelper;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 public class SimpleNetworkCropActivity extends AppCompatActivity implements CommonImagesAdapter {
@@ -55,21 +54,13 @@ public class SimpleNetworkCropActivity extends AppCompatActivity implements Comm
 //        cropImageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ball_horizontal));
         if (position == 0) {
 
-//            cropImageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ball_horizontal));
-            cropImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            cropImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            cropImageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ball_horizontal));
         } else {
-            Picasso.get().load(R.drawable.ball_horizontal).into(cropImageView, new Callback() {
-                @Override
-                public void onSuccess() {
-                    cropImageView.setCropType(CropType.LEFT_CENTER);
-                }
-
-                @Override
-                public void onError(Exception e) {
-
-                }
-            });
-//            ((CropImageView) cropImageView).setCropType(images[position - 1]);
+            cropImageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ball_horizontal));
+//            cropImageView.croppedImage().withCropType(CropType.LEFT_CENTER);
+//            Picasso.get().load(R.drawable.ball_horizontal).into(cropImageView);
+//            ((CropImageView) cropImageView).withCropType(images[position - 1]);
         }
         return cropImageView;
     }

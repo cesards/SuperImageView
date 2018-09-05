@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 
-import com.cesards.cropimageview.model.CropType;
+import com.cesards.cropimageview.crop.CropType;
 import com.cesards.samples.cropimageview.R;
 import com.cesards.samples.cropimageview._activity.CommonImagesAdapter;
 import com.cesards.samples.cropimageview._util.SystemUiHelper;
@@ -54,7 +54,7 @@ public class SimpleCropActivity extends AppCompatActivity implements CommonImage
 //            cropImageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ball_horizontal));
             cropImageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         } else {
-//            ((CropImageView) cropImageView).setCropType(images[position - 1]);
+//            ((CropImageView) cropImageView).withCropType(images[position - 1]);
         }
         return cropImageView;
     }
