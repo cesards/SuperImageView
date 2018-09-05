@@ -5,8 +5,8 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.cesards.cropimageview.crop.CropType;
-import com.cesards.cropimageview.crop.ImageTransformation;
+import com.cesards.cropimageview.image_crop.CropType;
+import com.cesards.cropimageview.image_crop.ImageTransformation;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

@@ -1,6 +1,6 @@
 package com.cesards.samples.cropimageview.rounded_corners;
 
-import com.cesards.cropimageview.crop.CropType;
+import com.cesards.cropimageview.image_crop.CropType;
 import com.cesards.samples.cropimageview.R;
 
 import java.util.Arrays;

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 
-import com.cesards.cropimageview.crop.CropType;
+import com.cesards.cropimageview.image_crop.CropType;
 import com.cesards.samples.cropimageview.R;
 import com.cesards.samples.cropimageview._activity.CommonImagesAdapter;
 import com.cesards.samples.cropimageview._util.SystemUiHelper;

@@ -8,12 +8,13 @@ import android.util.Log;
 import android.view.ViewOutlineProvider;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 
 public class CropImageView extends AppCompatImageView {
 
-  private final CroppedImage croppedImage = new CroppedImage(this);
-  private final RoundedCornerImage roundedImage = new RoundedCornerImage(this);
+  @Nullable private final CroppedImage croppedImage = new CroppedImage(this);
+  @Nullable private final RoundedCorners roundedImage = new RoundedCorners(this);
 
   public CropImageView(Context context) {
     super(context);
@@ -34,7 +35,7 @@ public class CropImageView extends AppCompatImageView {
   }
 
   /**
-   * Returns {@link RoundedCornerImage} so the user can retrieve and set information related to cropping
+   * Returns {@link RoundedCorners} so the user can retrieve and set information related to cropping
    * the image.
    */
   @NonNull
@@ -43,11 +44,11 @@ public class CropImageView extends AppCompatImageView {
   }
 
   /**
-   * Returns {@link RoundedCornerImage} so the user can retrieve and set information related to rounding
+   * Returns {@link RoundedCorners} so the user can retrieve and set information related to rounding
    * the image corners.
    */
 //  @NonNull
-//  RoundedCornerImage roundedImage() {
+//  RoundedCorners roundedImage() {
 //    return roundedImage;
 //  }
 

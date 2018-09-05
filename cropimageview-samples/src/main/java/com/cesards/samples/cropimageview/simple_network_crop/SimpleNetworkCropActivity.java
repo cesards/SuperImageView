@@ -5,11 +5,10 @@ import android.view.LayoutInflater;
 import android.widget.ImageView;
 
 import com.cesards.cropimageview.CropImageView;
-import com.cesards.cropimageview.crop.CropType;
+import com.cesards.cropimageview.image_crop.CropType;
 import com.cesards.samples.cropimageview.R;
 import com.cesards.samples.cropimageview._activity.CommonImagesAdapter;
 import com.cesards.samples.cropimageview._util.SystemUiHelper;
-import com.squareup.picasso.Picasso;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;

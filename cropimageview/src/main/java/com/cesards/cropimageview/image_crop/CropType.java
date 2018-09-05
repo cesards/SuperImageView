@@ -1,4 +1,4 @@
-package com.cesards.cropimageview.crop;
+package com.cesards.cropimageview.image_crop;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -26,7 +26,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.ViewCompat;
 
-public final class RoundedCornerImage implements RoundedCornerImageViewHook {
+public final class RoundedCorners implements RoundedCornerImageViewHook {
+
+    @Nullable
+    public static RoundedCorners
+
+
+
+
+
+
 
 
     @NonNull private final ImageView imageView;
@@ -48,7 +57,7 @@ public final class RoundedCornerImage implements RoundedCornerImageViewHook {
     private final Path borderPath = new Path();
 
 
-    public RoundedCornerImage(@NonNull ImageView imageView) {
+    public RoundedCorners(@NonNull ImageView imageView) {
         this.imageView = imageView;
     }
 
