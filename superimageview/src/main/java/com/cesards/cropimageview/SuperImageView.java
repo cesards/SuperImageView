@@ -86,12 +86,6 @@ public class SuperImageView extends AppCompatImageView {
     return changed;
   }
 
-  @Override
-  protected void drawableStateChanged() {
-    super.drawableStateChanged();
-//    roundedImage.notifyDrawableStateChanges(); // is it really necessary?
-  }
-
   private void setup(@NonNull Context context, @Nullable AttributeSet attributeSet) {
     if (attributeSet == null) {
       return;
@@ -242,21 +236,6 @@ public class SuperImageView extends AppCompatImageView {
         }
 
         @Override
-        public int getWidth() {
-          return SuperImageView.super.getWidth();
-        }
-
-        @Override
-        public int getHeight() {
-          return SuperImageView.super.getHeight();
-        }
-
-        @Override
-        public void postInvalidate() {
-          SuperImageView.super.postInvalidate();
-        }
-
-        @Override
         public void setLayerType(int layerType, @Nullable Paint paint) {
           SuperImageView.super.setLayerType(layerType, paint);
         }
@@ -280,15 +259,6 @@ public class SuperImageView extends AppCompatImageView {
 
     }
   }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -359,25 +329,6 @@ public class SuperImageView extends AppCompatImageView {
 
 
 
-
-
-
-//  @Override
-//  protected void onDraw(Canvas canvas) {
-//    super.onDraw(canvas);
-//    if (getDrawable() instanceof RoundedBitmapDrawable) {
-//      canvas.drawRoundRect(mDstRectF, mCornerRadius, mCornerRadius, paint);
-//    }
-//  }
-
-
-
-
-
-
-
-
-
   //  @Override
 //  public void setImageBitmap(Bitmap bm) {
 //    super.setImageDrawable(roundedImage.modifiedDrawable(bm));
@@ -388,24 +339,6 @@ public class SuperImageView extends AppCompatImageView {
     // bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
 //  }
 //
-
-//  @Override
-//  protected void onDraw(Canvas canvas) {
-//    super.onDraw(canvas);
-//    rect.bottom = getHeight();
-//    rect.right = getWidth();
-//    rect.left = 0;
-//    rect.top = 0;
-//
-//    canvas.drawRoundRect(rect, 10f, 10f, paint);
-//
-//    if (requiersShapeUpdate) {
-//      calculateLayout(canvas.getWidth(), canvas.getHeight());
-//      requiersShapeUpdate = false;
-//    }
-//
-//  }
-
 
 
 

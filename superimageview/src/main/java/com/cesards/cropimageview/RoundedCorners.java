@@ -10,14 +10,11 @@ import androidx.annotation.Nullable;
 
 public interface RoundedCorners {
     void setup(@NonNull Context context, @Nullable AttributeSet attributeSet);
-    void onLayoutChanged();
     void onDraw(Canvas canvas);
+    void onLayoutChanged();
 
     interface View {
         @NonNull Context getContext();
-        int getWidth();
-        int getHeight();
-        void postInvalidate();
         void setLayerType(int layerType, @Nullable Paint paint);
         void setWillNotDraw(boolean willNotDraw);
     }

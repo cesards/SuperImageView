@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -17,6 +18,11 @@ import com.codeforvictory.roundedcorners.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+/**
+ *
+ *
+ * The code is a modification of code found in https://github.com/florent37/ShapeOfView
+ */
 public final class RoundedCornersImage implements RoundedCorners {
 
     private static final float DEFAULT_RADIUS = 0f;
@@ -25,39 +31,64 @@ public final class RoundedCornersImage implements RoundedCorners {
     private final View view;
     private final Paint clipPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final PorterDuffXfermode pdMode = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
-
-
     private final Path clipPath = new Path();
-    private ClipPathManager clipManager = new ClipPathManager();
-    private boolean requiredShapeUpdate = true;
-    private final RectF rectF = new RectF();
+    private final Rect canvasBounds = new Rect();
+    private final RectF arcBounds = new RectF();
 
     public RoundedCornersImage(View view) {
         this.view = view;
     }
 
+    // TODO: 9/8/18 IMPROVE PERFORMANCE: CLIPPATH + LESS MATH INVOLVED (ALLOCATION IS GOOD)
     @Override
-    public void onLayoutChanged() {
-        requiredShapeUpdate = true;
-        view.postInvalidate();
+    public void onDraw(Canvas canvas) {
+        if (canvasBounds.width() != canvas.getWidth() && canvasBounds.height() != canvas.getHeight()) {
+            canvas.getClipBounds(canvasBounds);
+
+            clipPath.reset();
+            clipPath.moveTo(canvasBounds.left + cornerRadius[0], canvasBounds.top);
+
+            clipPath.lineTo(canvasBounds.right - cornerRadius[1], canvasBounds.top);
+            arcBounds.left = canvasBounds.right - cornerRadius[1] * 2f;
+            arcBounds.top = canvasBounds.top;
+            arcBounds.right = canvasBounds.right;
+            arcBounds.bottom = canvasBounds.top + cornerRadius[1] * 2f;
+            clipPath.arcTo(arcBounds, -90, 90);
+
+            clipPath.lineTo(canvasBounds.right, canvasBounds.bottom - cornerRadius[2]);
+            arcBounds.left = canvasBounds.right - cornerRadius[2] * 2f;
+            arcBounds.top = canvasBounds.bottom - cornerRadius[2] * 2f;
+            arcBounds.right = canvasBounds.right;
+            arcBounds.bottom = canvasBounds.bottom;
+            clipPath.arcTo(arcBounds, 0, 90);
+
+            clipPath.lineTo(canvasBounds.left + cornerRadius[3], canvasBounds.bottom);
+            arcBounds.left = canvasBounds.left;
+            arcBounds.top = canvasBounds.bottom - cornerRadius[3] * 2f;
+            arcBounds.right = canvasBounds.left + cornerRadius[3] * 2f;
+            arcBounds.bottom = canvasBounds.bottom;
+            clipPath.arcTo(arcBounds, 90, 90);
+
+            clipPath.lineTo(canvasBounds.left, canvasBounds.top + cornerRadius[0]);
+            arcBounds.left = canvasBounds.left;
+            arcBounds.top = canvasBounds.top;
+            arcBounds.right = canvasBounds.left + cornerRadius[0] * 2f;
+            arcBounds.bottom = canvasBounds.top + cornerRadius[0] * 2f;
+            clipPath.arcTo(arcBounds, 180, 90);
+
+            clipPath.close();
+        }
+
+        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.O_MR1){
+          canvas.drawPath(clipPath, clipPaint);
+        } else {
+//          canvas.drawPath(rectView, clipPaint);
+        }
     }
 
     @Override
-    public void onDraw(Canvas canvas) {
-        if (requiredShapeUpdate) {
-            calculateLayout(canvas.getWidth(), canvas.getHeight());
-            requiredShapeUpdate = false;
-        }
-
-//        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.O_MR1){
-            canvas.drawPath(clipPath, clipPaint);
-//        } else {
-//            canvas.drawPath(rectView, clipPaint);
-//        }
-
-        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.O_MR1) {
-            view.setLayerType(android.view.View.LAYER_TYPE_HARDWARE, null);
-        }
+    public void onLayoutChanged() {
+        // handled in onDraw()
     }
 
     @Override
@@ -82,73 +113,20 @@ public final class RoundedCornersImage implements RoundedCorners {
 
         for (int i = 0, len = this.cornerRadius.length; i < len; i++) {
             if (this.cornerRadius[i] < 0) {
-                throw new IllegalStateException("This can'' be possible");
+                throw new IllegalStateException("This can't be possible");
             }
         }
 
         clipPaint.setAntiAlias(true);
         view.setWillNotDraw(false);
 
+        // TODO: 9/9/18 STUDY WHY THIS IS NECESSARY
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O_MR1) {
             clipPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-            view.setLayerType(android.view.View.LAYER_TYPE_SOFTWARE, clipPaint); //Only works for software layers
+            view.setLayerType(android.view.View.LAYER_TYPE_HARDWARE, null);
         } else {
             clipPaint.setXfermode(pdMode);
-            view.setLayerType(android.view.View.LAYER_TYPE_SOFTWARE, null); //Only works for software layers
+            view.setLayerType(android.view.View.LAYER_TYPE_SOFTWARE, null);
         }
-
-        clipManager.setClipPathCreator((width, height) -> {
-            rectF.set(0, 0, width, height);
-            return generatePath(rectF);
-        });
-    }
-
-    private Path generatePath(RectF rect) {
-        final Path path = new Path();
-
-        final float left = rect.left;
-        final float top = rect.top;
-        final float bottom = rect.bottom;
-        final float right = rect.right;
-
-        final float minSize = Math.min(rect.width() / 2f, rect.height() / 2f);
-        
-        if (cornerRadius[0] > minSize) {
-            cornerRadius[0] = minSize;
-        }
-        if (cornerRadius[1] > minSize) {
-            cornerRadius[1] = minSize;
-        }
-        if (cornerRadius[3] > minSize) {
-            cornerRadius[3] = minSize;
-        }
-        if (cornerRadius[2] > minSize) {
-            cornerRadius[2] = minSize;
-        }
-
-        path.moveTo(left + cornerRadius[0], top);
-        path.lineTo(right - cornerRadius[1], top);
-        path.arcTo(new RectF(right - cornerRadius[1] * 2f, top, right, top + cornerRadius[1] * 2f), -90, 90);
-        path.lineTo(right, bottom - cornerRadius[2]);
-        path.arcTo(new RectF(right - cornerRadius[2] * 2f, bottom - cornerRadius[2] * 2f, right, bottom), 0, 90);
-        path.lineTo(left + cornerRadius[3], bottom);
-        path.arcTo(new RectF(left, bottom - cornerRadius[3] * 2f, left + cornerRadius[3] * 2f, bottom), 90, 90);
-        path.lineTo(left, top + cornerRadius[0]);
-        path.arcTo(new RectF(left, top, left + cornerRadius[0] * 2f, top + cornerRadius[0] * 2f), 180, 90);
-        path.close();
-
-        return path;
-    }
-
-    private void calculateLayout(int width, int height) {
-        if (clipManager != null) {
-            if (width > 0 && height > 0) {
-                clipManager.setupClipLayout(width, height);
-                clipPath.reset();
-                clipPath.set(clipManager.createMask());
-            }
-        }
-
-        view.postInvalidate();
     }
 }
