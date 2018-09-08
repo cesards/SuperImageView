@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public interface RoundedCornerImageViewHook {
+interface RoundedCornerImageViewHook {
     void setup(@NonNull Context context, @Nullable AttributeSet attributeSet);
 
     // void delegateDispatchDraw(Canvas canvas);

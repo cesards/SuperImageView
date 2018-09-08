@@ -30,12 +30,8 @@ public final class RoundedCornersImage implements RoundedCorners {
 
     private final Path clipPath = new Path();
     private ClipPathManager clipManager = new ClipPathManager();
-    private boolean requiersShapeUpdate = true;
+    private boolean requiredShapeUpdate = true;
     private final RectF rectF = new RectF();
-
-    private final Path path = new Path();
-
-
 
     public RoundedCornersImage(View view) {
         this.view = view;
@@ -43,15 +39,15 @@ public final class RoundedCornersImage implements RoundedCorners {
 
     @Override
     public void onLayoutChanged() {
-        requiersShapeUpdate = true;
+        requiredShapeUpdate = true;
         view.postInvalidate();
     }
 
     @Override
     public void onDraw(Canvas canvas) {
-        if (requiersShapeUpdate) {
+        if (requiredShapeUpdate) {
             calculateLayout(canvas.getWidth(), canvas.getHeight());
-            requiersShapeUpdate = false;
+            requiredShapeUpdate = false;
         }
 
 //        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.O_MR1){

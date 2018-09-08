@@ -1,6 +1,6 @@
 package com.codeforvictory.superimageview.roundedcorners;
 
-public final class RoundedCornerss {
+final class RoundedCornerss {
 
     //    private Drawable backgroundDrawable; //? needed? @Nullable ? @NonNull?
 //    private Drawable drawable; //? needed? @Nullable ? @NonNull?private boolean mMutateBackground = false;
