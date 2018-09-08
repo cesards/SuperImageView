@@ -1,1 +1,1 @@
-include ':cropimageview', ':cropimageview-samples'
+include ':superimageview', ':samples', ':superimageview-imagecrop', ':superimageview-roundedcorners'

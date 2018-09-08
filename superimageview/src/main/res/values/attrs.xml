@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="siv_SuperImageView">
+    <!-- Class name of the Crop to be used (provided by the library) -->
+    <!--
+         The class must be X
+
+         If the name starts with a '.', application package is prefixed.
+         Else, if the name contains a '.', the classname is assumed to be a full class name.
+         Else, the recycler view package name (android.support.v7.widget) is prefixed
+    -->
+    <attr name="siv_cropImplementation" format="string"/>
+    <attr name="siv_roundedCornersImplementation" format="string"/>
+  </declare-styleable>
+</resources>

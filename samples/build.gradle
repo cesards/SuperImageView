@@ -1,0 +1,11 @@
+apply from: "${rootDir}/buildsystem/android-application.gradle"
+//apply from: "${rootDir}/buildsystem/tooling.gradle"
+
+dependencies {
+    implementation 'androidx.core:core:1.0.0-rc01'
+    implementation project(':superimageview-imagecrop')
+    implementation project(':superimageview-roundedcorners')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0-rc01'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+}
