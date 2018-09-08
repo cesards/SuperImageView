@@ -27,7 +27,6 @@ public final class RoundedCornersImage implements RoundedCorners {
     private final PorterDuffXfermode pdMode = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
 
 
-
     private final Path clipPath = new Path();
     private ClipPathManager clipManager = new ClipPathManager();
     private boolean requiredShapeUpdate = true;
@@ -129,8 +128,6 @@ public final class RoundedCornersImage implements RoundedCorners {
 
         path.moveTo(left + cornerRadius[0], top);
         path.lineTo(right - cornerRadius[1], top);
-
-
         path.arcTo(new RectF(right - cornerRadius[1] * 2f, top, right, top + cornerRadius[1] * 2f), -90, 90);
         path.lineTo(right, bottom - cornerRadius[2]);
         path.arcTo(new RectF(right - cornerRadius[2] * 2f, bottom - cornerRadius[2] * 2f, right, bottom), 0, 90);
@@ -148,7 +145,7 @@ public final class RoundedCornersImage implements RoundedCorners {
             if (width > 0 && height > 0) {
                 clipManager.setupClipLayout(width, height);
                 clipPath.reset();
-                clipPath.set(clipManager.createMask(width, height));
+                clipPath.set(clipManager.createMask());
             }
         }
 
