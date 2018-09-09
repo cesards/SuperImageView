@@ -1,19 +1,16 @@
-package com.cesards.samples.cropimageview.rounded_corners;
+package com.codeforvictory.superimageview.samples.superimageview.rounded_corners;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.cesards.samples.cropimageview.R;
-import com.cesards.samples.cropimageview.rounded_corners.widget.VerticalTransparentItemDecorator;
+import com.codeforvictory.superimageview.samples.superimageview.R;
+import com.codeforvictory.superimageview.samples.superimageview.rounded_corners.widget.VerticalTransparentItemDecorator;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RoundedCornerImagesActivity extends AppCompatActivity {

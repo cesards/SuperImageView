@@ -1,4 +1,4 @@
-package com.cesards.samples.cropimageview.rounded_corners.widget;
+package com.codeforvictory.superimageview.samples.superimageview.rounded_corners.widget;
 
 import android.graphics.Rect;
 import android.view.View;

@@ -1,11 +1,11 @@
-package com.cesards.samples.cropimageview.rounded_corners;
+package com.codeforvictory.superimageview.samples.superimageview.rounded_corners;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.cesards.cropimageview.SuperImageView;
-import com.cesards.samples.cropimageview.R;
+import com.codeforvictory.superimageview.samples.superimageview.R;
 import com.codeforvictory.superimageview.crop.CroppedImage;
 
 import java.util.ArrayList;
@@ -68,7 +68,6 @@ final class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ItemImageVi
         void bind(Image image) {
             superImageView.getFeature(CroppedImage.class).setCropType(image.cropType());
             superImageView.setImageDrawable(ContextCompat.getDrawable(itemView.getContext(), image.drawableResource()));
-//            cropImageView.croppedImage().withCropType(image.cropType());
         }
     }
 }

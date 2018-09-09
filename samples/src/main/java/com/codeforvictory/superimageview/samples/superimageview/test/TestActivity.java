@@ -1,9 +1,9 @@
-package com.cesards.samples.cropimageview.test;
+package com.codeforvictory.superimageview.samples.superimageview.test;
 
 import android.os.Bundle;
 import android.app.Activity;
 
-import com.cesards.samples.cropimageview.R;
+import com.codeforvictory.superimageview.samples.superimageview.R;
 
 public class TestActivity extends Activity {
 

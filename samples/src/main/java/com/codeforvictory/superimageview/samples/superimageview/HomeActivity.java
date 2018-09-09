@@ -1,12 +1,12 @@
-package com.cesards.samples.cropimageview;
+package com.codeforvictory.superimageview.samples.superimageview;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.cesards.samples.cropimageview.rounded_corners.RoundedCornerImagesActivity;
-import com.cesards.samples.cropimageview.simple_crop.SimpleCropActivity;
-import com.cesards.samples.cropimageview.simple_network_crop.SimpleNetworkCropActivity;
-import com.cesards.samples.cropimageview.test.TestActivity;
+import com.codeforvictory.superimageview.samples.superimageview.rounded_corners.RoundedCornerImagesActivity;
+import com.codeforvictory.superimageview.samples.superimageview.simple_crop.SimpleCropActivity;
+import com.codeforvictory.superimageview.samples.superimageview.simple_network_crop.SimpleNetworkCropActivity;
+import com.codeforvictory.superimageview.samples.superimageview.test.TestActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

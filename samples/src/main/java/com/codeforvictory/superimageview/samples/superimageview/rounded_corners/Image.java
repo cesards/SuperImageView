@@ -1,4 +1,4 @@
-package com.cesards.samples.cropimageview.rounded_corners;
+package com.codeforvictory.superimageview.samples.superimageview.rounded_corners;
 
 import com.codeforvictory.superimageview.crop.CropType;
 

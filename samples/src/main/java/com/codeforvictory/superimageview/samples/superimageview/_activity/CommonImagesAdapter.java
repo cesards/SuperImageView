@@ -1,4 +1,4 @@
-package com.cesards.samples.cropimageview._activity;
+package com.codeforvictory.superimageview.samples.superimageview._activity;
 
 import android.widget.ImageView;
 

@@ -1,11 +1,11 @@
-package com.cesards.samples.cropimageview.simple_crop;
+package com.codeforvictory.superimageview.samples.superimageview.simple_crop;
 
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.cesards.samples.cropimageview._activity.CommonImagesAdapter;
+import com.codeforvictory.superimageview.samples.superimageview._activity.CommonImagesAdapter;
 
 import androidx.viewpager.widget.PagerAdapter;
 

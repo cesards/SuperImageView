@@ -1,4 +1,4 @@
-package com.cesards.samples.cropimageview.simple_network_crop;
+package com.codeforvictory.superimageview.samples.superimageview.simple_network_crop;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,9 +6,9 @@ import android.widget.ImageView;
 
 import com.cesards.cropimageview.SuperImageView;
 import com.codeforvictory.superimageview.crop.CropType;
-import com.cesards.samples.cropimageview.R;
-import com.cesards.samples.cropimageview._activity.CommonImagesAdapter;
-import com.cesards.samples.cropimageview._util.SystemUiHelper;
+import com.codeforvictory.superimageview.samples.superimageview.R;
+import com.codeforvictory.superimageview.samples.superimageview._activity.CommonImagesAdapter;
+import com.codeforvictory.superimageview.samples.superimageview._util.SystemUiHelper;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;

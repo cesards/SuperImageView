@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cesards.samples.cropimageview._util;
+package com.codeforvictory.superimageview.samples.superimageview._util;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

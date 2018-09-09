@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cesards.samples.cropimageview._widget;
+package com.codeforvictory.superimageview.samples.superimageview._widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -24,7 +24,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
 import com.cesards.cropimageview.SuperImageView;
-import com.cesards.samples.cropimageview.R;
+import com.codeforvictory.superimageview.samples.superimageview.R;
 
 public class ForegroundSuperImageView extends SuperImageView {
 

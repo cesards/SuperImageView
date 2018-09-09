@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cesards.samples.cropimageview._widget;
+package com.codeforvictory.superimageview.samples.superimageview._widget;
 import android.view.View;
 
 public class BackgroundToForegroundTransformer extends ABaseTransformer {
