@@ -1,11 +1,11 @@
-package com.codeforvictory.superimageview.crop;
+package com.codeforvictory.android.superimageview.crop;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.cesards.cropimageview.Crop;
+import com.codeforvictory.android.superimageview.Crop;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -61,7 +61,7 @@ public final class CroppedImage implements Crop {
         }
 
         final TypedArray a = context.obtainStyledAttributes(attributeSet, R.styleable.siv_ImageCrop);
-        cropType = a.getInt(com.cesards.cropimageview.R.styleable.siv_SuperImageView_siv_cropImplementation, CropType.NONE);
+        cropType = a.getInt(R.styleable.siv_SuperImageView_siv_cropImplementation, CropType.NONE);
         a.recycle();
 
         setupScaleType();
@@ -86,16 +86,4 @@ public final class CroppedImage implements Crop {
             view.setScaleType(ImageView.ScaleType.MATRIX);
         }
     }
-
-
-
-
-
-    //    /**
-//     * Call super first and return the result
-//     * */
-//    void applyTransformation();
-//    void delegateSetScaleType(ImageView.ScaleType scaleType);
-
-
 }

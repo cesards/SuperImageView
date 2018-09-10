@@ -1,10 +1,10 @@
-package com.codeforvictory.superimageview.crop;
+package com.codeforvictory.android.superimageview.crop;
 
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 
-import com.cesards.cropimageview.Crop;
+import com.codeforvictory.android.superimageview.Crop;
 
 import androidx.annotation.Nullable;
 

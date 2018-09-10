@@ -4,9 +4,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cesards.cropimageview.SuperImageView;
+import com.codeforvictory.android.superimageview.SuperImageView;
+import com.codeforvictory.android.superimageview.crop.CroppedImage;
 import com.codeforvictory.superimageview.samples.superimageview.R;
-import com.codeforvictory.superimageview.crop.CroppedImage;
 
 import java.util.ArrayList;
 import java.util.List;

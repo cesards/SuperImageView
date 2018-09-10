@@ -1,5 +1,5 @@
 ext {
-    applicationId = "com.cesards.android.cropimageview"
+    applicationId = 'com.codeforvictory.android.superimageview'
     applicationVersionCode = 1021
     applicationVersionName = '1.0.2.1'
     androidTargetSdkVersion = 28

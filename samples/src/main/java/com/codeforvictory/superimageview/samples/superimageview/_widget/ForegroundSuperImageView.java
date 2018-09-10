@@ -23,7 +23,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
-import com.cesards.cropimageview.SuperImageView;
+
+import com.codeforvictory.android.superimageview.SuperImageView;
 import com.codeforvictory.superimageview.samples.superimageview.R;
 
 public class ForegroundSuperImageView extends SuperImageView {

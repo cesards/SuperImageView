@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 
-import com.codeforvictory.superimageview.crop.CropType;
+import com.codeforvictory.android.superimageview.crop.CropType;
 import com.codeforvictory.superimageview.samples.superimageview.R;
 import com.codeforvictory.superimageview.samples.superimageview._activity.CommonImagesAdapter;
 import com.codeforvictory.superimageview.samples.superimageview._util.SystemUiHelper;

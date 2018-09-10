@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codeforvictory.roundedcorners" />
+<manifest package="com.codeforvictory.android.superimageview.roundedcorners" />

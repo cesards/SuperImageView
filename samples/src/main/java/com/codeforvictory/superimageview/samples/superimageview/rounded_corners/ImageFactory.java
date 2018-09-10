@@ -1,6 +1,6 @@
 package com.codeforvictory.superimageview.samples.superimageview.rounded_corners;
 
-import com.codeforvictory.superimageview.crop.CropType;
+import com.codeforvictory.android.superimageview.crop.CropType;
 import com.codeforvictory.superimageview.samples.superimageview.R;
 
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.codeforvictory.superimageview.crop;
+package com.codeforvictory.android.superimageview.crop;
 
 import android.content.Context;
 

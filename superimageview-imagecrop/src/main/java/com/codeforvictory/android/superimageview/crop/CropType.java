@@ -1,4 +1,4 @@
-package com.codeforvictory.superimageview.crop;
+package com.codeforvictory.android.superimageview.crop;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
