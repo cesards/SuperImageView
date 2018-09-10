@@ -1,4 +1,13 @@
-<h1 align="center">CropImageView</h1>
+<h1 align="center">SuperImageView</h1>
+<p align="center">Extra features for your ImageView provided in a modularized way</p>
+
+
+<h1 align="center">Documentation for v2 coming this week.</h1>
+
+---
+---
+---
+
 
 <p align="center">
   <a href="http://developer.android.com/index.html"><img src="https://img.shields.io/badge/platform-android-green.svg?style=flat-square"></a>
