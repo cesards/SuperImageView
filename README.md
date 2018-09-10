@@ -9,6 +9,7 @@
 ---
 
 
+<h1 align="center">CropImageView</h1>
 <p align="center">
   <a href="http://developer.android.com/index.html"><img src="https://img.shields.io/badge/platform-android-green.svg?style=flat-square"></a>
   <a href="https://android-arsenal.com/api?level=7"><img src="https://img.shields.io/badge/API-7%2B-brightgreen.svg?style=flat-square"></a>
