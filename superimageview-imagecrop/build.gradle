@@ -1,15 +1,43 @@
+apply plugin: 'com.android.library'
 apply from: "${rootDir}/buildsystem/android-library.gradle"
 
 android {
     resourcePrefix 'siv_'
 }
 
+
+
+//apply from: "${rootDir}/gradle/bintray-deployment.gradle"
+//android {
+//    resourcePrefix 'siv_'
+//
+//    compileSdkVersion versions.compileSdk
+//
+//    defaultConfig {
+//        minSdkVersion versions.minSdk
+//    }
+//
+//    lintOptions {
+//        disable 'GoogleAppIndexingWarning'
+//    }
+//
+//    // TODO replace with https://issuetracker.google.com/issues/72050365 once released.
+//    libraryVariants.all {
+//        it.generateBuildConfig.enabled = false
+//    }
+//}
+
+
+
 dependencies {
     implementation 'androidx.annotation:annotation:1.0.0-rc01'
     implementation 'androidx.core:core:1.0.0-rc01'
     implementation 'androidx.appcompat:appcompat:1.0.0-rc01'
+
+
     api project(':superimageview')
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:3.9.1'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 }

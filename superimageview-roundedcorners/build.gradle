@@ -1,15 +1,19 @@
 apply from: "${rootDir}/buildsystem/android-library.gradle"
 
+
+
 android {
     resourcePrefix 'siv_'
 }
 
 dependencies {
     implementation 'androidx.annotation:annotation:1.0.0-rc01'
-    implementation 'androidx.core:core:1.0.0-rc01'
     implementation 'androidx.appcompat:appcompat:1.0.0-rc01'
     api project(':superimageview')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 }
+
+//apply from: rootProject.file('gradle/checkstyle.gradle')
+//apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

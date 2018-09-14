@@ -1,0 +1,36 @@
+apply plugin: 'maven-publish'
+
+repositories {
+    maven {
+        url "http://internal.repo"
+    }
+}
+
+group 'com.group.binaries'
+version = externalVersion
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            group 'com.group.binaries'
+            version = externalVersion
+            credentials {
+                username "admin"
+                password "password"
+            }
+
+            if(project.version.endsWith('-SNAPSHOT')) {
+//                url 'https://oss.sonatype.org/content/repositories/snapshots/'
+                url "http://example/artifactory/libs-snapshot-local"
+            } else {
+                url "http://example/artifactory/libs-release-local"
+                //"http://internal.repo/libs-snapshot-local"
+            }
+        }
+    }
+}

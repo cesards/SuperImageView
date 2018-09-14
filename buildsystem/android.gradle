@@ -1,3 +1,7 @@
+
+
+
+
 android {
     compileSdkVersion androidTargetSdkVersion
 
@@ -20,6 +24,7 @@ android {
     }
 
     lintOptions {
+        disable 'GoogleAppIndexingWarning'
         abortOnError false
         textReport true // ?
     }
