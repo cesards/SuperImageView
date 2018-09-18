@@ -1,19 +1,31 @@
-apply from: "${rootDir}/buildsystem/android-library.gradle"
-
-
+apply plugin: 'com.android.library'
 
 android {
-    resourcePrefix 'siv_'
+  resourcePrefix 'siv_'
+
+  compileSdkVersion versions.compileSdk
+
+  defaultConfig {
+    minSdkVersion versions.minSdk
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner" // Espresso
+  }
+
+  lintOptions {
+    disable 'GoogleAppIndexingWarning'
+  }
 }
+
+apply from: rootProject.file('gradle/checkstyle.gradle')
+apply from: rootProject.file('gradle/maven-deployment.gradle')
 
 dependencies {
-    implementation 'androidx.annotation:annotation:1.0.0-rc01'
-    implementation 'androidx.appcompat:appcompat:1.0.0-rc01'
-    api project(':superimageview')
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
-}
+  implementation 'androidx.annotation:annotation:1.0.0-rc01'
+  implementation 'androidx.appcompat:appcompat:1.0.0-rc01'
+  api project(':superimageview')
 
-//apply from: rootProject.file('gradle/checkstyle.gradle')
-//apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
+  testImplementation 'junit:junit:4.12'
+  testImplementation 'org.assertj:assertj-core:3.9.1'
+  androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+  androidTestImplementation 'androidx.test:rules:1.1.0-alpha4'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+}

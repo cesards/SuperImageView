@@ -1,21 +1,65 @@
 apply from: "${rootDir}/buildsystem/dependencies.gradle"
+apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {
+  ext.versions = [
+    'minSdk': 14,
+    'compileSdk': 28,
+    'errorProne': '2.3.1',
+  ]
   repositories {
-    jcenter()
     google()
+    jcenter()
+    maven { url 'https://plugins.gradle.org/m2/' } // Error Prone Plugin
   }
-
   dependencies {
     classpath 'com.android.tools.build:gradle:3.3.0-alpha10'
+    classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.6'
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.20.0'
   }
 }
 
-allprojects {
+subprojects {
+  group = GROUP
+  version = VERSION_NAME
+
   repositories {
-    maven { url 'https://jitpack.io' }
     google()
     jcenter()
+  }
+
+  apply plugin: 'net.ltgt.errorprone'
+
+  tasks.withType(JavaCompile) {
+    options.compilerArgs += [
+        '-Xlint:all',
+        '-Xlint:-serial',
+        '-Xlint:-deprecation',
+    ]
+  }
+
+  configurations.all {
+    resolutionStrategy {
+      eachDependency { details ->
+        // Force all the error-prone dependencies to use the same version.
+        if (details.requested.group == 'com.google.errorprone' && details.requested.name.startsWith('error_prone_')) {
+          details.useVersion versions.errorProne
+        }
+      }
+    }
+  }
+
+  tasks.withType(Test) {
+    testLogging {
+      exceptionFormat 'FULL'
+      showCauses true
+      showExceptions true
+      showStackTraces true
+    }
+  }
+
+  dependencies {
+    errorprone "com.google.errorprone:error_prone_core:${versions.errorProne}"
   }
 }
 
