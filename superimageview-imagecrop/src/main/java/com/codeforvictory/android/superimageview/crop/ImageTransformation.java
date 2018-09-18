@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 
 import com.codeforvictory.android.superimageview.Crop;
+import com.codeforvictory.android.superimageview.crop.error.IllegalTransformationType;
 
 import androidx.annotation.Nullable;
 
@@ -41,10 +42,18 @@ final class ImageTransformation {
 
             boolean verticalImageMode = scaleX > scaleY;
 
-            float postDrawableWidth = drawableWidth * scale;
-            float xTranslation = getXTranslation(cropType, viewWidth, postDrawableWidth, verticalImageMode);
-            float postDrawabeHeigth = drawableHeight * scale;
-            float yTranslation = getYTranslation(cropType, viewHeight, postDrawabeHeigth, verticalImageMode);
+            float xTranslation = getXTranslation(
+                cropType,
+                viewWidth,
+                drawableWidth * scale,
+                verticalImageMode
+            );
+            float yTranslation = getYTranslation(
+                cropType,
+                viewHeight,
+                drawableHeight * scale,
+                verticalImageMode
+            );
 
             matrix.postTranslate(xTranslation, yTranslation);
             view.setImageMatrix(matrix);
@@ -67,6 +76,8 @@ final class ImageTransformation {
                 case CropType.RIGHT_CENTER:
                     // View in the middle of the screen
                     return (viewHeight - postDrawableHeight) / 2f;
+                default:
+                  throw new IllegalTransformationType("Transformation not supported. Check if the transformation you want to do should be handled by the method getXTranslation()");
             }
         }
 
@@ -90,6 +101,8 @@ final class ImageTransformation {
                 case CropType.CENTER_BOTTOM:
                     // View in the middle of the screen
                     return (viewWidth - postDrawableWidth) / 2f;
+              default:
+                throw new IllegalTransformationType("Transformation not supported. Check if the transformation you want to do should be handled by the method getYTranslation()");
             }
         }
         // All other cases we don't need to translate

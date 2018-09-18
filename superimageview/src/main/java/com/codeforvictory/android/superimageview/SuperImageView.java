@@ -122,7 +122,7 @@ public class SuperImageView extends AppCompatImageView {
 //      Class<?> cl = Class.forName(cropImplementation);
       cropImpl = Class.forName(cropImplementation);
       Constructor<?> constructor = cropImpl.getConstructor(Crop.View.class);
-      Object[] constructorArgs = new Object[]{new Crop.View() {
+      Object[] constructorArgs = new Object[]{ new Crop.View() {
         @Override
         public Drawable getDrawable() {
           return SuperImageView.super.getDrawable();
@@ -193,7 +193,7 @@ public class SuperImageView extends AppCompatImageView {
         public void invalidate() {
           SuperImageView.super.invalidate();
         }
-      }};
+      } };
       crop = (Crop) constructor.newInstance(constructorArgs);
 //      Object o = constructor.newInstance(constructorArgs);
       crop.setup(context, attributeSet);
@@ -228,7 +228,7 @@ public class SuperImageView extends AppCompatImageView {
     try {
       Class<?> cl = Class.forName(roundedCornersImplementation);
       Constructor<?> constructor = cl.getConstructor(RoundedCorners.View.class);
-      Object[] constructorArgs = new Object[]{new RoundedCorners.View() {
+      Object[] constructorArgs = new Object[]{ new RoundedCorners.View() {
         @NonNull
         @Override
         public Context getContext() {
@@ -244,7 +244,7 @@ public class SuperImageView extends AppCompatImageView {
         public void setWillNotDraw(boolean willNotDraw) {
           SuperImageView.super.setWillNotDraw(willNotDraw);
         }
-      }};
+      } };
       roundedCorners = (RoundedCorners) constructor.newInstance(constructorArgs);
       roundedCorners.setup(context, attributeSet);
     } catch (ClassNotFoundException e) {

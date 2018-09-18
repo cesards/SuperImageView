@@ -78,8 +78,8 @@ public final class RoundedCornersImage implements RoundedCorners {
             clipPath.close();
         }
 
-        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.O_MR1){
-          canvas.drawPath(clipPath, clipPaint);
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O_MR1) {
+            canvas.drawPath(clipPath, clipPaint);
         } else {
 //          canvas.drawPath(rectView, clipPaint);
         }
