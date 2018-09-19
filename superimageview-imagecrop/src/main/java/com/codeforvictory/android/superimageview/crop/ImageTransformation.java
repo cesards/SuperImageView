@@ -60,6 +60,7 @@ final class ImageTransformation {
         }
     }
 
+    // FIXME: 9/19/18 fix this case
     private float getYTranslation(
             @CropType int cropType,
             int viewHeight,
@@ -76,8 +77,14 @@ final class ImageTransformation {
                 case CropType.RIGHT_CENTER:
                     // View in the middle of the screen
                     return (viewHeight - postDrawableHeight) / 2f;
+                case CropType.CENTER_TOP:
+                case CropType.LEFT_TOP:
+                case CropType.NONE:
+                case CropType.RIGHT_TOP:
+                  return 0f;
                 default:
-                  throw new IllegalTransformationType("Transformation not supported. Check if the transformation you want to do should be handled by the method getXTranslation()");
+                    throw new IllegalTransformationType("Transformation not supported. Check if the transformation you want to do should be handled by the method getXTranslation()");
+
             }
         }
 
@@ -85,6 +92,7 @@ final class ImageTransformation {
         return 0f;
     }
 
+    // FIXME: 9/19/18 fix this case
     private float getXTranslation(
             @CropType int cropType,
             int viewWidth,
@@ -101,8 +109,14 @@ final class ImageTransformation {
                 case CropType.CENTER_BOTTOM:
                     // View in the middle of the screen
                     return (viewWidth - postDrawableWidth) / 2f;
-              default:
-                throw new IllegalTransformationType("Transformation not supported. Check if the transformation you want to do should be handled by the method getYTranslation()");
+                case CropType.LEFT_BOTTOM:
+                case CropType.LEFT_CENTER:
+                case CropType.LEFT_TOP:
+                case CropType.NONE:
+                  return 0f;
+                default:
+                    throw new IllegalTransformationType("Transformation not supported. Check if the transformation you want to do should be handled by the method getYTranslation()");
+
             }
         }
         // All other cases we don't need to translate

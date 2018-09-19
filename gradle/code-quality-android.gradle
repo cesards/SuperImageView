@@ -1,0 +1,11 @@
+android {
+  lintOptions {
+    lintConfig file("${project.rootDir}/code-quality/custom-lint.xml")
+    htmlReport true
+    abortOnError true
+    // baseline file("lint-baseline.xml")
+    // htmlOutput file("lint-report.html")
+    // warningsAsErrors true
+    // check[IDs of Issues to run]
+  }
+}

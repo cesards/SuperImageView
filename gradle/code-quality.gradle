@@ -1,0 +1,60 @@
+// This should be executed under subprojects {} or allProjects {} functions.
+
+/**
+ * Error-prone
+ */
+apply plugin: 'net.ltgt.errorprone'
+
+tasks.withType(JavaCompile).configureEach {
+  options.errorprone.disableWarningsInGeneratedCode = true
+}
+
+configurations.all {
+  resolutionStrategy {
+    eachDependency { details ->
+      // Force all the error-prone dependencies to use the same version.
+      if (details.requested.group == 'com.google.errorprone' && details.requested.name.startsWith('error_prone_')) {
+        details.useVersion versions.errorProne
+      }
+    }
+  }
+}
+
+
+/**
+ * Checkstyle
+ */
+apply plugin: 'checkstyle'
+
+checkstyle {
+  configFile rootProject.file('code-quality/checkstyle.xml')
+  ignoreFailures false
+  showViolations true
+}
+
+task checkstyle(type: Checkstyle) {
+  configFile rootProject.file('code-quality/checkstyle.xml')
+  source 'src/main/java'
+  ignoreFailures false
+  showViolations true
+  include '**/*.java'
+
+//  reports {
+//    xml.enabled = true
+//  }
+
+  classpath = files()
+}
+
+afterEvaluate {
+  if (project.tasks.getByName("check")) {
+    check.dependsOn('checkstyle')
+  }
+}
+
+/**
+ * Tools dependencies
+ */
+dependencies {
+  errorprone "com.google.errorprone:error_prone_core:${versions.errorProne}"
+}

@@ -16,3 +16,7 @@ test:
     # When running the apk build, unit tests, lint, checkstyle etc sequentially is slow, so we run them in parallel.
     # Using bash case statement, choose which command to run on which node (machine).
     - ./gradlew assembleDebug
+
+
+
+#   - ./gradlew clean assembleDebug test lint

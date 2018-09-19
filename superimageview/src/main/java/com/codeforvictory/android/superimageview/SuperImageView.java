@@ -1,5 +1,6 @@
 package com.codeforvictory.android.superimageview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -38,9 +39,9 @@ public class SuperImageView extends AppCompatImageView {
     setup(context, attrs);
   }
 
-  @NonNull
+  @SuppressWarnings("unchecked")
+  @Nullable
   public <T> T getFeature(final Class<T> implementation) {
-//    if (crop != null && crop.getClass().isAssignableFrom(implementation)) {
     if (crop != null && crop.getClass() == implementation) {
       return ((T) crop);
     } else if (roundedCorners != null && roundedCorners.getClass() == implementation) {
@@ -65,7 +66,9 @@ public class SuperImageView extends AppCompatImageView {
   @Override
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
-    roundedCorners.onDraw(canvas);
+    if (roundedCorners != null) {
+      roundedCorners.onDraw(canvas);
+    }
   }
 
   @Override
@@ -91,7 +94,7 @@ public class SuperImageView extends AppCompatImageView {
       return;
     }
 
-    final TypedArray a = context.obtainStyledAttributes(attributeSet, R.styleable.siv_SuperImageView);
+    @SuppressLint("") final TypedArray a = context.obtainStyledAttributes(attributeSet, R.styleable.siv_SuperImageView);
     setupCrop(a.getString(R.styleable.siv_SuperImageView_siv_cropImplementation), context, attributeSet);
     setupRoundedCorners(
             a.getString(R.styleable.siv_SuperImageView_siv_roundedCornersImplementation),

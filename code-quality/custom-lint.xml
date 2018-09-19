@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+  <!-- Error issues that should break builds -->
+  <!-- Issues considered priority 8 or higher should be marked as "error" -->
+  <issue id="HardcodedText" severity="error" />
+  <issue id="UnusedResources" severity="error">
+    <!--<ignore path="**/google-services/**" />-->
+    <!--<ignore path="build.gradle" />-->
+    <!--<ignore path="src/main/res/layout/preview_theme_editor.xml" />-->
+    <!--<ignore path="src/main/res/values/strings_preview.xml" />-->
+  </issue>
+
+  <!-- Informational issues don't break builds -->
+  <issue id="CustomViewStyleable" severity="informational" />
+  <!--<issue id="GradleDependency" severity="informational" />-->
+  <!--<issue id="OldTargetApi" severity="informational" />-->
+</lint>
