@@ -6,7 +6,6 @@ import android.os.Bundle;
 import com.codeforvictory.superimageview.samples.superimageview.rounded_corners.RoundedCornerImagesActivity;
 import com.codeforvictory.superimageview.samples.superimageview.simple_crop.SimpleCropActivity;
 import com.codeforvictory.superimageview.samples.superimageview.simple_network_crop.SimpleNetworkCropActivity;
-import com.codeforvictory.superimageview.samples.superimageview.test.TestActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,9 +20,6 @@ public class HomeActivity extends AppCompatActivity {
         );
         findViewById(R.id.simple_network_crop).setOnClickListener(view ->
                 startActivity(new Intent(this, SimpleNetworkCropActivity.class))
-        );
-        findViewById(R.id.test).setOnClickListener(view ->
-                startActivity(new Intent(this, TestActivity.class))
         );
         findViewById(R.id.rounded_corners).setOnClickListener(view ->
                 startActivity(new Intent(this, RoundedCornerImagesActivity.class))

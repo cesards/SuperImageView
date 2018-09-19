@@ -7,8 +7,7 @@ import android.widget.ImageView;
 import com.codeforvictory.android.superimageview.SuperImageView;
 import com.codeforvictory.android.superimageview.crop.CropType;
 import com.codeforvictory.superimageview.samples.superimageview.R;
-import com.codeforvictory.superimageview.samples.superimageview._activity.CommonImagesAdapter;
-import com.codeforvictory.superimageview.samples.superimageview._util.SystemUiHelper;
+import com.codeforvictory.superimageview.samples.superimageview.CommonImagesAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -31,7 +30,6 @@ public class SimpleNetworkCropActivity extends AppCompatActivity implements Comm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_network_crop);
-        switchToLowProfile();
         setupViews();
     }
 
@@ -62,9 +60,5 @@ public class SimpleNetworkCropActivity extends AppCompatActivity implements Comm
 //            ((CroppedImage) cropImageView).withCropType(images[position - 1]);
         }
         return superImageView;
-    }
-
-    private void switchToLowProfile() {
-        new SystemUiHelper(this, SystemUiHelper.LEVEL_LOW_PROFILE, SystemUiHelper.FLAG_IMMERSIVE_STICKY).hide();
     }
 }

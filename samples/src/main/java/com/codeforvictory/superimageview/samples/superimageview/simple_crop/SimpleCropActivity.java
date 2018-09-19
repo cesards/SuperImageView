@@ -6,8 +6,7 @@ import android.widget.ImageView;
 
 import com.codeforvictory.android.superimageview.crop.CropType;
 import com.codeforvictory.superimageview.samples.superimageview.R;
-import com.codeforvictory.superimageview.samples.superimageview._activity.CommonImagesAdapter;
-import com.codeforvictory.superimageview.samples.superimageview._util.SystemUiHelper;
+import com.codeforvictory.superimageview.samples.superimageview.CommonImagesAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -29,7 +28,6 @@ public class SimpleCropActivity extends AppCompatActivity implements CommonImage
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_crop);
-        switchToLowProfile();
         setupViews();
     }
 
@@ -57,9 +55,5 @@ public class SimpleCropActivity extends AppCompatActivity implements CommonImage
 //            ((CroppedImage) cropImageView).withCropType(images[position - 1]);
         }
         return cropImageView;
-    }
-
-    private void switchToLowProfile() {
-        new SystemUiHelper(this, SystemUiHelper.LEVEL_LOW_PROFILE, SystemUiHelper.FLAG_IMMERSIVE_STICKY).hide();
     }
 }

@@ -1,4 +1,4 @@
-package com.codeforvictory.superimageview.samples.superimageview._activity;
+package com.codeforvictory.superimageview.samples.superimageview;
 
 import android.widget.ImageView;
 
