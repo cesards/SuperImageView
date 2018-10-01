@@ -1,11 +1,11 @@
-package com.codeforvictory.superimageview.samples.superimageview.rounded_corners.widget;
+package com.codeforvictory.superimageview.samples.superimageview.shared.widget;
 
 import android.graphics.Rect;
 import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class VerticalTransparentItemDecorator extends RecyclerView.ItemDecoration {
+public final class VerticalTransparentItemDecorator extends RecyclerView.ItemDecoration {
 
     private int space;
 

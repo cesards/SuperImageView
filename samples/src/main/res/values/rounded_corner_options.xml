@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="options">
-        <item>Without Rounded Corners</item>
-        <item>With Rounded Corners</item>
-    </string-array>
-</resources>

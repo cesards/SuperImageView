@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CropImageView Samples</string>
-    <string name="title_activity_simple_network_crop">SimpleNetworkCrop</string>
-    <string name="title_activity_test">TestActivity</string>
-    <string name="title_activity_rounded_corner_images">RoundedCornerImagesActivity</string>
+    <string name="app_name">SuperImageView Samples</string>
+    <string name="image_cropping">Image Cropping</string>
+    <string name="image_cropping_network">Image Cropping From Network</string>
+    <string name="rounded_corners">Rounded Corners</string>
+    <string name="rounded_corners_image_cropping">Rounded Corners with Image Cropping</string>
 </resources>

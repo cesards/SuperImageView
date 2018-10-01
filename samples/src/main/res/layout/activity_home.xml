@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="8dp"
     tools:context=".HomeActivity">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/simple_crop"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/simple_crop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/image_cropping"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:minHeight="56dp"
+      android:text="@string/image_cropping"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/simple_network_crop"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/simple_crop_from_network"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/simple_crop" />
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/image_cropping_network"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:minHeight="56dp"
+      android:text="@string/image_cropping_network"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/image_cropping" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/rounded_corners"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/rounded_corner_images"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/simple_network_crop" />
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/rounded_corners"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:minHeight="56dp"
+      android:text="@string/rounded_corners"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/image_cropping_network" />
+
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/rounded_corners_image_cropping"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:minHeight="56dp"
+      android:text="@string/rounded_corners_image_cropping"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/rounded_corners" />
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

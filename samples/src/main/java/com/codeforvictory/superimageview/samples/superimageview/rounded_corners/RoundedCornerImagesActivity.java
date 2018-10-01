@@ -1,74 +1,26 @@
 package com.codeforvictory.superimageview.samples.superimageview.rounded_corners;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import com.codeforvictory.superimageview.samples.superimageview.R;
-import com.codeforvictory.superimageview.samples.superimageview.rounded_corners.widget.VerticalTransparentItemDecorator;
-
-import androidx.appcompat.app.ActionBar;
+import com.codeforvictory.superimageview.samples.superimageview.shared.ImageLocalDataSource;
+import com.codeforvictory.superimageview.samples.superimageview.shared.widget.VerticalTransparentItemDecorator;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RoundedCornerImagesActivity extends AppCompatActivity {
-
-    private ImagesAdapter imagesAdapter = new ImagesAdapter();
+public final class RoundedCornerImagesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rounded_corner_images);
-        setupViews(savedInstanceState);
+        setContentView(R.layout.activity_images);
+        setupViews();
     }
 
-    private void setupViews(Bundle savedInstanceState) {
-        setSupportActionBar(findViewById(R.id.title_container));
-//        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP);
-
+    private void setupViews() {
         RecyclerView images = findViewById(R.id.images);
         images.addItemDecoration(new VerticalTransparentItemDecorator(getResources().getDimensionPixelOffset(R.dimen.activity_horizontal_margin)));
-        images.setAdapter(imagesAdapter);
-
-        Spinner navSpinner = findViewById(R.id.image_options);
-
-        navSpinner.setAdapter(
-                ArrayAdapter.createFromResource(
-                        navSpinner.getContext(),
-                        R.array.options,
-                        android.R.layout.simple_spinner_dropdown_item
-                )
-        );
-
-        navSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        imagesAdapter.removeAll();
-                        imagesAdapter.add(ImageFactory.imagesWithoutRoundedCorners());
-                        break;
-
-                    case 1:
-                        imagesAdapter.removeAll();
-                        imagesAdapter.add(ImageFactory.imagesWithRoundedCorners());
-                        break;
-
-                    default:
-                        throw new IllegalStateException("If it exists you can handle it.");
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
-        });
-
-        if (savedInstanceState == null) {
-            navSpinner.setSelection(0);
-        }
+        images.setAdapter(new ImagesRecyclerAdapter(ImageLocalDataSource.networkImages()));
     }
 
 }

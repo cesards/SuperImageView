@@ -2,29 +2,34 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codeforvictory.superimageview.samples.superimageview">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+  <uses-permission android:name="android.permission.INTERNET" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".simple_crop.SimpleCropActivity" />
-        <activity
-            android:name=".simple_network_crop.SimpleNetworkCropActivity"
-            android:label="@string/title_activity_simple_network_crop" />
-        <activity
-            android:name=".test.TestActivity"
-            android:label="@string/title_activity_test" />
-        <activity
-            android:theme="@style/Theme.MaterialComponents.NoActionBar"
-            android:name=".rounded_corners.RoundedCornerImagesActivity"
-            android:label="@string/title_activity_rounded_corner_images"></activity>
-    </application>
+  <application
+      android:allowBackup="false"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/AppTheme">
+
+    <activity android:name=".HomeActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+\
+    <activity
+        android:name=".image_cropping.ImageCroppingActivity"
+        android:theme="@style/TransparentStatusBar" />
+
+    <activity
+        android:name=".image_cropping.NetworkImageCroppingActivity"
+        android:theme="@style/TransparentNavigationAndStatusBar"
+        />
+
+    <activity
+        android:name=".rounded_corners.RoundedCornerImagesActivity"
+        android:label="@string/rounded_corners"
+        android:theme="@style/Theme.MaterialComponents.NoActionBar"></activity>
+  </application>
 
 </manifest>

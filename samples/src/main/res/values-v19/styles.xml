@@ -1,0 +1,14 @@
+<resources>
+
+  <style name="TransparentStatusBar" parent="@style/AppTheme">
+    <item name="android:windowTranslucentStatus">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+  </style>
+
+  <style name="TransparentNavigationAndStatusBar" parent="@style/TransparentStatusBar">
+    <item name="android:windowTranslucentStatus">true</item>
+    <item name="android:windowTranslucentNavigation">true</item>
+  </style>
+
+</resources>

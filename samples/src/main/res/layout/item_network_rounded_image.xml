@@ -4,8 +4,4 @@
     android:id="@+id/image"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@android:color/white"
-    app:siv_cropImplementation="com.codeforvictory.android.superimageview.crop.CroppedImage"
-    app:siv_roundedCornersImplementation="com.codeforvictory.superimageview.roundedcorners.RoundedCornersImage"
-    app:siv_cornerRadius="20dp"
-    />
+    app:siv_roundedCornersImplementation="com.codeforvictory.android.superimageview.roundedcorners.RoundedCornersImage" />

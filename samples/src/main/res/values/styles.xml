@@ -1,3 +1,11 @@
 <resources>
-    <style name="AppTheme" parent="Theme.MaterialComponents" />
+
+  <style name="AppTheme" parent="Theme.MaterialComponents" />
+
+  <style name="TransparentStatusBar" parent="@style/AppTheme">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+  </style>
+
+  <style name="TransparentNavigationAndStatusBar" parent="@style/TransparentStatusBar"/>
 </resources>
