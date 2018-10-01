@@ -3,7 +3,6 @@
 gradlew.bat
 build/
 local.properties
-reports/
 
 # Maven
 target
@@ -29,7 +28,6 @@ proguard/
 *.iml
 *.ipl
 *.iws
-classes/
 idea-classes/
 coverage-error.log
 ############################## TO CHECK ##############################
@@ -48,7 +46,6 @@ captures/
 gen
 bin
 project.properties
-out
 
 # Finder
 .DS_Store
