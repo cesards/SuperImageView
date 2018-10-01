@@ -15,8 +15,8 @@ apply from: rootProject.file('gradle/maven-deployment.gradle')
 apply from: rootProject.file('gradle/code-quality-android.gradle')
 
 dependencies {
-  implementation 'androidx.annotation:annotation:1.0.0-rc02'
-  implementation 'androidx.appcompat:appcompat:1.0.0-rc02'
+  implementation 'androidx.annotation:annotation:1.0.0'
+  implementation 'androidx.appcompat:appcompat:1.0.0'
   api project(':superimageview')
 
   testImplementation 'junit:junit:4.12'
