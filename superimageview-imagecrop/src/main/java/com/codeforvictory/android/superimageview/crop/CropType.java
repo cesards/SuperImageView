@@ -11,24 +11,23 @@ import androidx.annotation.IntDef;
 @Retention(RetentionPolicy.SOURCE)
 @IntDef({
     CropType.NONE,
-    CropType.LEFT_TOP,
-    CropType.LEFT_CENTER,
-    CropType.LEFT_BOTTOM,
-    CropType.RIGHT_TOP,
-    CropType.RIGHT_CENTER,
-    CropType.RIGHT_BOTTOM,
-    CropType.CENTER_TOP,
-    CropType.CENTER_BOTTOM,
+    CropType.TOP_LEFT,
+    CropType.TOP_RIGHT,
+    CropType.BOTTOM_LEFT,
+    CropType.BOTTOM_RIGHT,
+    CropType.LEFT,
+    CropType.TOP,
+    CropType.RIGHT,
+    CropType.BOTTOM,
 })
 public @interface CropType {
-
   int NONE = -1;
-  int LEFT_TOP = 0;
-  int LEFT_CENTER = 1;
-  int LEFT_BOTTOM = 2;
-  int RIGHT_TOP = 3;
-  int RIGHT_CENTER = 4;
-  int RIGHT_BOTTOM = 5;
-  int CENTER_TOP = 6;
-  int CENTER_BOTTOM = 7;
+  int TOP_LEFT = 0;
+  int LEFT = 1;
+  int BOTTOM_LEFT = 2;
+  int TOP_RIGHT = 3;
+  int RIGHT = 4;
+  int BOTTOM_RIGHT = 5;
+  int TOP = 6;
+  int BOTTOM = 7;
 }

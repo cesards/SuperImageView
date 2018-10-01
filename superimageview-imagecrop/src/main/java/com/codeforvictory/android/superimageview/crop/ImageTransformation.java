@@ -69,18 +69,18 @@ final class ImageTransformation {
     ) {
         if (verticalImageMode) {
             switch (cropType) {
-                case CropType.CENTER_BOTTOM:
-                case CropType.LEFT_BOTTOM:
-                case CropType.RIGHT_BOTTOM:
+                case CropType.BOTTOM:
+                case CropType.BOTTOM_LEFT:
+                case CropType.BOTTOM_RIGHT:
                     return viewHeight - postDrawableHeight;
-                case CropType.LEFT_CENTER:
-                case CropType.RIGHT_CENTER:
+                case CropType.LEFT:
+                case CropType.RIGHT:
                     // View in the middle of the screen
                     return (viewHeight - postDrawableHeight) / 2f;
-                case CropType.CENTER_TOP:
-                case CropType.LEFT_TOP:
+                case CropType.TOP:
+                case CropType.TOP_LEFT:
                 case CropType.NONE:
-                case CropType.RIGHT_TOP:
+                case CropType.TOP_RIGHT:
                   return 0f;
                 default:
                     throw new IllegalTransformationType("Transformation not supported. Check if the transformation you want to do should be handled by the method getXTranslation()");
@@ -101,17 +101,17 @@ final class ImageTransformation {
     ) {
         if (!verticalImageMode) {
             switch (cropType) {
-                case CropType.RIGHT_TOP:
-                case CropType.RIGHT_CENTER:
-                case CropType.RIGHT_BOTTOM:
+                case CropType.TOP_RIGHT:
+                case CropType.RIGHT:
+                case CropType.BOTTOM_RIGHT:
                     return viewWidth - postDrawableWidth;
-                case CropType.CENTER_TOP:
-                case CropType.CENTER_BOTTOM:
+                case CropType.TOP:
+                case CropType.BOTTOM:
                     // View in the middle of the screen
                     return (viewWidth - postDrawableWidth) / 2f;
-                case CropType.LEFT_BOTTOM:
-                case CropType.LEFT_CENTER:
-                case CropType.LEFT_TOP:
+                case CropType.BOTTOM_LEFT:
+                case CropType.LEFT:
+                case CropType.TOP_LEFT:
                 case CropType.NONE:
                   return 0f;
                 default:
