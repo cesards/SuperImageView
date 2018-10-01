@@ -5,10 +5,6 @@
  */
 apply plugin: 'net.ltgt.errorprone'
 
-tasks.withType(JavaCompile).configureEach {
-  options.errorprone.disableWarningsInGeneratedCode = true
-}
-
 configurations.all {
   resolutionStrategy {
     eachDependency { details ->
@@ -19,7 +15,6 @@ configurations.all {
     }
   }
 }
-
 
 /**
  * Checkstyle
@@ -56,5 +51,13 @@ afterEvaluate {
  * Tools dependencies
  */
 dependencies {
+  // Error-prone
   errorprone "com.google.errorprone:error_prone_core:${versions.errorProne}"
 }
+
+/**
+ * Useful links:
+ * - http://errorprone.info/index
+ * - https://github.com/tbroyer/gradle-errorprone-plugin-v0.0.x
+ * - https://github.com/tbroyer/gradle-errorprone-plugin
+ */

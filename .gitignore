@@ -1,9 +1,9 @@
 # Gradle
-.gradle
+.gradle/
 gradlew.bat
-build
+build/
 local.properties
-reports
+reports/
 
 # Maven
 target
@@ -19,25 +19,30 @@ eclipsebin
 proguard/
 
 # IntelliJ IDEA
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/dictionaries # SHOULD THIS BE INCLUDED IN THE FOLDER?
-.idea/libraries
 .idea/caches/
-# /.idea/assetWizardSettings.xml SHOULD THIS BE EXCLUDED ??
-# /.idea/navEditor.xml SHOULD THIS BE EXCLUDED ??
+.idea/libraries/
+.idea/markdown-navigator*
+.idea/markdown-exported-files.xml
+.idea/gradle.xml
+.idea/kotlinc.xml
+.idea/workspace.xml
 *.iml
 *.ipl
 *.iws
 classes/
 idea-classes/
 coverage-error.log
+############################## TO CHECK ##############################
+#.idea/markdown-navigator/                                           #
+# .idea/tasks.xml                                                    #
+# .idea/dictionaries # SHOULD THIS BE INCLUDED IN THE FOLDER?        #
+# /.idea/assetWizardSettings.xml SHOULD THIS BE EXCLUDED ??          #
+# /.idea/navEditor.xml SHOULD THIS BE EXCLUDED ??                    #
+######################################################################
 
 # Android Studio
 captures/
 .navigation/
-
 
 # Android
 gen
