@@ -1,4 +1,4 @@
-apply plugin: 'com.github.ben-manes.versions'
+// apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {
   ext.versions = [
@@ -14,7 +14,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.3.0-alpha12'
+    classpath 'com.android.tools.build:gradle:3.3.0-alpha13'
     classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.16'
     classpath 'com.github.ben-manes:gradle-versions-plugin:0.20.0'
   }

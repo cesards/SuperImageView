@@ -16,20 +16,19 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-\
+
     <activity
         android:name=".image_cropping.ImageCroppingActivity"
         android:theme="@style/TransparentStatusBar" />
 
     <activity
         android:name=".image_cropping.NetworkImageCroppingActivity"
-        android:theme="@style/TransparentNavigationAndStatusBar"
-        />
+        android:theme="@style/TransparentNavigationAndStatusBar" />
 
     <activity
         android:name=".rounded_corners.RoundedCornerImagesActivity"
         android:label="@string/rounded_corners"
-        android:theme="@style/Theme.MaterialComponents.NoActionBar"></activity>
-  </application>
+        android:theme="@style/Theme.MaterialComponents.NoActionBar" />
 
+  </application>
 </manifest>
