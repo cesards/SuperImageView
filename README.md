@@ -58,7 +58,7 @@ dependencies {
 ### Step 2
 Define in xml:
 ```xml
-<com.codeforvictory.android.superimageview.SuperImageView
+<com.cesards.cropimageview.CropImageView
    xmlns:custom="http://schemas.android.com/apk/res-auto"
    android:id="@+id/imageView1"
    android:src="@drawable/photo1"
